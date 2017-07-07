@@ -2,6 +2,12 @@
 is to spread knowledge and create tools through which make customer business processes effective and fast
 VTENEXT CE is born in order to provide a FREE OPEN SOURCE solution through which manage all customer processes in an efficient and advanced way.
 
+# HOW TO INSTALL - QUICK START
+1.	Download the latest release of VTENEXT CE from here
+2.	Unzip the zip file to a folder on your hard drive. This will create a folder containing the files and directories.
+3.	Open your FTP client and upload the VTENEXT CE files in ‘binary mode’ to the desired location on your web server. All files can be uploaded to a “vtenext” sub-directory in your public www folder, for example http://yourdomain.org/vtenext/ or you could setup VTENEXT CE in its own subdomain and upload all the files at, for example http://vtenext.mycompany.com
+4.	Open your web browser and navigate to the URL to which you uploaded VTENEXT CE. If everything is uploaded correctly, you should see the Configuration Wizard. If there are any problems, VTENEXT CE will identify them and help you out with a solution, otherwise follow the step by step instructions in order to have the software correctly installed.
+
 # WHY WE DO THAT?
 
 Too many companies are spending a lot of money in solutions that are not able to fix the real customer relationship problems. That solutions aren’ t able to be used from the organizations: too complicated, too dashboards, too procedures to know. The outcome is people that after the start up period, give up the application and come back to work in the old style: mail and spreadsheets.
