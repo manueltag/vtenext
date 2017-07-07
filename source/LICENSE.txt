@@ -1,4 +1,4 @@
-﻿VTECRM Business License
+VTECRM Business License
 
 The VTECRM software (“the Software”) is copyright © 2014 VTECRM LIMITED of London UK (“VTECRM”). Use of the Software is permitted subject to the below terms and conditions. A company or other legal entity wishing to deploy the Software (“Customer”) must accept these terms. Without acceptance, Customer may not use the Software except as permitted under the GNU Affero General Public License version 3 (“AGPL”).
 
