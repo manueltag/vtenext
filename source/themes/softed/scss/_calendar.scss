@@ -1,0 +1,128 @@
+#addEvent .nav-tabs {
+	background-color: $white;
+	border: 0px none;
+}
+
+#addEvent .nav-tabs > li > a, #addEvent .nav-tabs > li > a:hover, #addEvent .nav-tabs > li > a:focus {
+	color: $black !important;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+#addEvent .nav-tabs > li:not(.active) {
+	& > a {
+		color: $grey-400 !important;
+		font-weight: 700;
+		cursor: pointer;
+		
+		& .vteicon {
+			color: $grey-400 !important;
+		}
+	}
+}
+
+#addEvent .nav-tabs > li.active {
+	border-bottom: 3px solid $vte-primary;
+	
+	& > a {
+		color: $vte-primary !important;
+	}
+}
+
+#addEvent .active {
+	color: $black;
+}
+
+#addEvent label {
+	font-weight: normal;
+}
+
+#addEvent .closebutton {
+	z-index: 100;
+}
+
+#addEvent #header-tab-content {
+	overflow: auto;
+}
+
+#addEvent .field-container {
+	width: 100%;
+	margin: 0px auto;
+	background-color: $white;
+}
+
+#addEvent.layerPopup {
+	position: fixed;
+	margin: 0px auto;
+	top: 50%;
+	left: 50%;
+	z-index: 100;
+	width:80%;
+	max-width: 1000px;
+	height: 520px;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);                                                         
+}
+
+@media(max-width:767px) {
+	#addEvent.layerPopup {
+	position: fixed;
+		overflow: auto;
+		top: 50%;
+		left: 50%;
+	}
+	#addEvent.layerPopup .closebutton {
+		display: none;
+	}
+	#addEvent .content-left {
+		border-right: 0px none;
+	}	
+}
+
+@media(min-width:768px) {
+	#addEvent.layerPopup {
+	position: fixed;
+		overflow: auto;
+		top: 50%;
+		left: 50%;
+	}
+	#addEvent.layerPopup .closebutton {
+		display: none;
+	}
+	#addEvent .content-left {
+		border-right: 0px none;
+	}
+}
+
+@media(min-width:992px) {
+	#addEvent.layerPopup {
+	position: fixed;
+		overflow: initial;
+		top: 50%;
+		left: 50%;
+	}
+	#addEvent.layerPopup .closebutton {
+		display: block;
+	}
+	#addEvent .content-left {
+		border-right: 1px solid $grey-300;
+	}
+}
+
+@media(min-width:1200px) {
+	#addEvent.layerPopup {
+		position: fixed;
+		overflow: initial;
+		top: 50%;
+		left: 50%;
+	}
+	#addEvent.layerPopup .closebutton {
+		display: block;
+	}
+	#addEvent .content-left {
+		border-right: 1px solid $grey-300;
+	}
+}

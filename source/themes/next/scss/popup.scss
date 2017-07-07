@@ -1,0 +1,132 @@
+/*  crmv@98810 */
+/* crmv@98866 */
+
+/* Import colors */
+@import 'vars/colors';
+
+/* Import VTE mixins */
+@import 'vars/mixins';
+
+html, body {
+	height: 94%; /* leave space for top panel */
+}
+#linkMsgMainTab {
+	width:100%;
+	/*height: 100%;
+	position: absolute;*/
+	z-index: -10;
+}
+#linkMsgLeftPane {
+	width:20%;
+	min-width:200px;
+	border-right: 1px solid #d2d2d2;
+	vertical-align: top;
+}
+#linkMsgRightPane {
+	min-width:400px;
+	vertical-align: top;
+	padding:8px;
+}
+#linkMsgRightPaneTop {
+	vertical-align: top;
+	padding-bottom: 2px;
+}
+#linkMsgRightPaneBottom {
+	height:15%;
+	max-height:200px;
+	min-height:80px;
+	padding-top: 2px;
+}
+#linkMsgModTab {
+	width:100%;
+}
+.linkMsgModTd {
+	margin: 2px;
+	padding: 15px;
+	font-weight: 700;
+	cursor: pointer;
+    background-color: $white;
+    border-bottom: 1px solid $vte-button-border;
+    
+	i.icon-module {
+	    display: block;
+	    float: left;
+	    text-align: center;
+	    color: $black;
+	}
+    
+    i.icon-module[data-first-letter] {
+    	color: $black;
+    	&:after {
+    		color: $black;
+    	}
+    }
+}
+.linkMsgModTd:hover {
+	background-color: rgba(0, 0, 0, 0.05); 
+}
+.linkMsgModTdSelected {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+.popupLinkTitleRow {
+}
+.popupLinkListTitleRow {
+}
+.popupLinkListTitleCell {
+	padding: 4px;
+	font-weight: 700;
+	border-bottom: 1px solid #b0b0b0;
+	text-align: left;
+}
+.popupLinkListDataRow {
+	cursor: pointer;
+	border-bottom: 1px solid #a0a0a0;
+	text-align: left;
+	height: 24px;
+}
+.popupLinkListDataRow0 {
+	background-color: #f0f0f0;
+}
+.popupLinkListDataRow1 {
+}
+.popupLinkListDataRow:hover, .popupLinkListDataRow.hovered {
+	background-color: #e0e0e0;
+}
+.popupLinkListDataExtraRow {
+	padding: 6px;
+}
+.popupLinkListDataExtraCell {
+	color:#606060;
+	border-bottom:1px solid #d0d0d0;
+	padding-bottom: 6px !important;
+}
+.popupLinkListDataCell {
+	padding: 2px;
+}
+.popupLinkTitle {
+	font-weight: 700;
+	padding: 4px;
+}
+.popupLinkList {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.popupLinkListLoading {
+}
+.popupLinkListNoData {
+	width: 90%;
+	text-align: center;
+	padding: 10px;
+	font-style: italic;
+}
+.navigationBtn {
+	cursor: pointer;
+}
+#popupAttachDiv {
+	background-color:  #f0f0f0;
+	border-top: 2px solid  #e0e0e0;
+	width: 100%
+}
+#popupMsgAttachTitle {
+	font-weight: 700;
+} 

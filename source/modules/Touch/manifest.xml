@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<module>
+<name>Touch</name>
+<label>Touch</label>
+<parent></parent>
+<type>extension</type>
+<version>1.4</version>
+<dependencies>
+<vtiger_version>4.3</vtiger_version>
+<vtiger_max_version>16.*</vtiger_max_version>
+</dependencies>
+<tables>
+</tables>
+</module>

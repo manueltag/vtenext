@@ -1,0 +1,54 @@
+/* For Report Print */
+
+/*  crmv@96742 */
+
+/* Import colors */
+@import 'vars/colors';
+
+/* Import VTE mixins */
+@import 'vars/mixins';
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+.rptTable {
+
+	width:100%;
+	border:1px solid $black;
+	border-collapse: collapse;
+	
+	& > thead > tr > th {
+		color: $white;
+		background-color: $grey-700;
+		
+		border-bottom:2px solid $black;
+		border-left:1px solid $black;
+		border-top:1px solid $black;
+		border-right:1px solid $black;
+	}
+	
+	& > tbody > tr > td {
+		border:1px dotted $black;
+		text-align:left;
+		
+		&.rptEmptyGrp {
+			background-color: $white;
+			
+			border-top: 1px solid transparent;
+			border-bottom: none;
+			
+		}
+	}
+	
+	&.table-striped > tbody > tr {
+		&:nth-of-type(odd) {
+			background-color: $grey-300;
+		}
+		&:nth-of-type(even) {
+			background-color: $white;
+		}
+	}
+
+}

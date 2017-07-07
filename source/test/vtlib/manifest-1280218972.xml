@@ -1,0 +1,33 @@
+<?xml version='1.0'?>
+<module>
+<exporttime>2010-07-27 09:22:52</exporttime>
+<name>Projects</name>
+<label>Projects</label>
+<parent>Sales</parent>
+<version>.1</version>
+<dependencies>
+<vtiger_version>3</vtiger_version>
+</dependencies>
+<tables>
+<table>
+<name>vtiger_projects</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="vtiger_projects">
+    <field name="projectid" type="I" size="10">
+      <NOTNULL/>
+    </field>
+    <field name="project_name" type="C" size="100"/>
+    <field name="project_description" type="C" size="100"/>
+    <field name="accountid" type="I" size="10"/>
+    <field name="contactid" type="I" size="10"/>
+    <field name="reports_to_id" type="I" size="10"/>
+    <index name="SYS_C009550">
+      <UNIQUE/>
+      <col>PROJECTID</col>
+    </index>
+  </table>
+</schema>]]></sql>
+</table>
+<table>
+<name>vtiger_projectscf</name>

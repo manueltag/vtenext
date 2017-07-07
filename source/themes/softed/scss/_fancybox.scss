@@ -1,0 +1,12 @@
+.fancybox-overlay {
+	background-image: none;
+}
+
+.fancybox-outer, .fancybox-inner {
+	border-radius: 3px;
+}
+
+.fancybox-lock .fancybox-overlay {
+    overflow: auto;
+    overflow-y: auto;
+}

@@ -1,0 +1,24 @@
+{* crmv@30967 crmv@30976 *}
+
+<table class="small lview_foldertt_table" cellpadding="0" cellspacing="0">
+	<tr><td class="dvtSelectedCell lview_foldertt_title" align="center" colspan="2">{$APP.LBL_FOLDER_CONTENT}</td></tr>
+	{foreach item=doc from=$FOLDERDATA}
+		<tr>
+			<td class="lview_foldertt_row" align="left">
+				{$doc.chartname|truncate:30}
+			</td>
+			<td class="lview_foldertt_row">
+				<img src="{$doc.chart_filename}" width="64" border="0" style="padding:4px" />
+			</td>
+
+		</tr>
+	{foreachelse}
+		<tr><td class="lview_foldertt_row" colspan="2">{$MOD.LBL_NO_DOCUMENTS}</td></tr>
+	{/foreach}
+
+	{if count($FOLDERDATA) < $TOTALCOUNT}
+		<tr><td class="lview_foldertt_row" colspan="2">...</td></tr>
+	{/if}
+
+	<tr><td class="lview_foldertt_lastrow" colspan="2"></td></tr>
+</table>

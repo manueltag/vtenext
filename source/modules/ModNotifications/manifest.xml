@@ -1,0 +1,474 @@
+<?xml version='1.0'?>
+<module>
+<exporttime>2012-07-25 12:56:26</exporttime>
+<name>ModNotifications</name>
+<label>ModNotifications</label>
+<parent></parent>
+<dependencies>
+<vtiger_version>4.2</vtiger_version>
+<vtiger_max_version>16.*</vtiger_max_version>
+</dependencies>
+<tables>
+<table>
+<name>TABLEPREFIX_modnotifications</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="TABLEPREFIX_modnotifications">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="modnotificationsid" type="I" size="19">
+		<KEY/>
+    </field>
+    <field name="notification_no" type="C" size="255"/>
+    <field name="related_to" type="I" size="19"/>
+    <field name="mod_not_type" type="C" size="255"/>
+    <field name="seen" type="I" size="1"/>
+    <field name="subject" type="C" size="255"/>
+    <field name="from_email" type="C" size="255"/>
+    <field name="from_email_name" type="C" size="255"/>
+	<field name="sent_summary_not" type="I" size="1"/>
+	<index name="NewIndex1">
+      <col>related_to</col>
+    </index>
+	<index name="NewIndex2">
+      <col>mod_not_type</col>
+    </index>
+	<index name="modnotifications_seen_idx">
+      <col>seen</col>
+    </index>
+  </table>
+</schema>]]></sql>
+</table>
+<table>
+<name>TABLEPREFIX_modnotificationscf</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="TABLEPREFIX_modnotificationscf">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="modnotificationsid" type="I" size="19">
+      <KEY/>
+    </field>
+  </table>
+</schema>]]></sql>
+</table>
+<table>
+<name>vte_modnotifications_follow</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="vte_modnotifications_follow">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="userid" type="I" size="19">
+      <KEY/>
+    </field>
+	<field name="record" type="I" size="19">
+      <KEY/>
+    </field>
+	<index name="userid_idx">
+      <col>userid</col>
+    </index>
+	<index name="record_idx">
+      <col>record</col>
+    </index>
+  </table>
+</schema>]]></sql>
+</table>
+<table>
+<name>vte_modnotifications_modules</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="vte_modnotifications_modules">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="userid" type="I" size="19">
+      <KEY/>
+    </field>
+	<field name="module" type="C" size="255">
+      <KEY/>
+    </field>
+	<field name="notify_create" type="I" size="1" />
+	<field name="notify_edit" type="I" size="1" />
+	<index name="vte_modnotifications_modules_idx">
+      <UNIQUE/>
+      <col>userid</col>
+	  <col>module</col>
+    </index>
+  </table>
+</schema>]]></sql>
+</table>
+<table>
+<name>vte_modnot_follow_cv</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="vte_modnot_follow_cv">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+	<field name="cvid" type="I" size="19">
+	  <KEY/>
+	</field>
+	<field name="userid" type="I" size="19">
+	  <KEY/>
+	</field>
+	<field name="count" type="I" size="19"/>
+	<field name="modifiedtime" type="T"/>
+	<field name="last_processed" type="T"/>
+	<index name="cvid_idx">
+	  <col>cvid</col>
+	</index>
+	<index name="userid_idx">
+	  <col>userid</col>
+	</index>
+  </table>
+</schema>]]></sql>
+</table>
+<table>
+<name>TABLEPREFIX_modnotifications_types</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="TABLEPREFIX_modnotifications_types">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+	<field name="id" type="I" size="19">
+	  <key/>
+	</field>
+	<field name="type" type="C" size="50"/>
+	<field name="action" type="C" size="50"/>
+	<field name="custom" type="I">
+	  <DEFAULT value="1"/>
+	</field>
+  </table>
+</schema>]]></sql>
+</table>
+</tables>
+<panels>
+<panel>
+<label>LBL_TAB_MAIN</label>
+<blocks>
+<block>
+<label>LBL_MODNOTIFICATION_INFORMATION</label>
+<fields>
+<field>
+<fieldname>notification_no</fieldname>
+<uitype>4</uitype>
+<columnname>notification_no</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Notification No</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>1</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+<entityidentifier>
+<entityidfield>modnotificationsid</entityidfield>
+<entityidcolumn>modnotificationsid</entityidcolumn>
+</entityidentifier>
+</field>
+<field>
+<fieldname>related_to</fieldname>
+<uitype>10</uitype>
+<columnname>related_to</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Related To</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>2</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>assigned_user_id</fieldname>
+<uitype>53</uitype>
+<columnname>smownerid</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Assigned To</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>4</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~M</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>createdtime</fieldname>
+<uitype>70</uitype>
+<columnname>createdtime</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Created Time</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>7</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>T~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>2</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>modifiedtime</fieldname>
+<uitype>70</uitype>
+<columnname>modifiedtime</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Modified Time</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>8</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>T~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>2</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>mod_not_type</fieldname>
+<uitype>15</uitype>
+<columnname>mod_not_type</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Type</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>3</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~M</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence>1</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>creator</fieldname>
+<uitype>52</uitype>
+<columnname>smcreatorid</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Creator</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>5</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence>2</quickcreatesequence>
+<displaytype>2</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>seen</fieldname>
+<uitype>56</uitype>
+<columnname>seen</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Seen</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>6</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>C~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence>3</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>sent_summary_not</fieldname>
+<uitype>56</uitype>
+<columnname>sent_summary_not</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Sent Summary Notification</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>9</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>C~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence>4</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+</fields>
+</block>
+<block>
+<label>LBL_CUSTOM_INFORMATION</label>
+</block>
+<block>
+<label>LBL_DESCRIPTION_INFORMATION</label>
+<fields>
+<field>
+<fieldname>description</fieldname>
+<uitype>19</uitype>
+<columnname>description</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Description</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>1</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>subject</fieldname>
+<uitype>1</uitype>
+<columnname>subject</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Subject</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>2</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence>5</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>from_email</fieldname>
+<uitype>1</uitype>
+<columnname>from_email</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>From Email</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>3</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence>6</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>from_email_name</fieldname>
+<uitype>1</uitype>
+<columnname>from_email_name</columnname>
+<tablename>TABLEPREFIX_modnotifications</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>From Email Name</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>4</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence>7</quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+</fields>
+</block>
+</blocks>
+</panel>
+</panels>
+<customviews>
+<customview>
+<viewname>All</viewname>
+<setdefault>true</setdefault>
+<setmetrics>false</setmetrics>
+<setmobile>true</setmobile>
+<fields>
+<field>
+<fieldname>notification_no</fieldname>
+<columnindex>1</columnindex>
+</field>
+<field>
+<fieldname>related_to</fieldname>
+<columnindex>2</columnindex>
+</field>
+<field>
+<fieldname>description</fieldname>
+<columnindex>3</columnindex>
+</field>
+<field>
+<fieldname>assigned_user_id</fieldname>
+<columnindex>4</columnindex>
+</field>
+</fields>
+</customview>
+</customviews>
+<sharingaccess>
+<default>private</default>
+</sharingaccess>
+<actions>
+<action>
+<name><![CDATA[Import]]></name>
+<status>enabled</status>
+</action>
+<action>
+<name><![CDATA[Export]]></name>
+<status>enabled</status>
+</action>
+<action>
+<name><![CDATA[Merge]]></name>
+<status>enabled</status>
+</action>
+</actions>
+<customlinks>
+<customlink>
+<linktype>HEADERSCRIPT</linktype>
+<linklabel>ModNotificationsCommonScript</linklabel>
+<linkurl><![CDATA[modules/ModNotifications/ModNotificationsCommon.js]]></linkurl>
+<linkicon><![CDATA[]]></linkicon>
+<sequence>0</sequence>
+</customlink>
+</customlinks>
+</module>

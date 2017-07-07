@@ -1,0 +1,266 @@
+<?xml version='1.0'?>
+<module>
+<exporttime>2012-07-21 12:53:40</exporttime>
+<name>ChangeLog</name>
+<label>ChangeLog</label>
+<parent></parent>
+<dependencies>
+	<vtiger_version>4.2</vtiger_version>
+	<vtiger_max_version>16.*</vtiger_max_version>
+</dependencies>
+<tables>
+<table>
+<name>TABLEPREFIX_changelog</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="TABLEPREFIX_changelog">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="changelogid" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="audit_no" type="N" size="3,1"/>
+    <field name="parent_id" type="I" size="16"/>
+    <field name="user_name" type="C" size="20"/>
+    <field name="modified_date" type="C" size="20"/>
+	<index name="changelog_parent_id_idx">
+      <col>parent_id</col>
+    </index>
+  </table>
+</schema>]]></sql>
+</table>
+<table>
+<name>TABLEPREFIX_changelogcf</name>
+<sql><![CDATA[<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="TABLEPREFIX_changelogcf">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="changelogid" type="I" size="19">
+      <KEY/>
+    </field>
+  </table>
+</schema>]]></sql>
+</table>
+</tables>
+<panels>
+<panel>
+<label>LBL_TAB_MAIN</label>
+<blocks>
+<block>
+<label>LBL_CHANGELOG_INFORMATION</label>
+<fields>
+<field>
+<fieldname>audit_no</fieldname>
+<uitype>7</uitype>
+<columnname>audit_no</columnname>
+<tablename>TABLEPREFIX_changelog</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Audit No</fieldlabel>
+<readonly>99</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>1</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>N~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+<entityidentifier>
+<entityidfield>changelogid</entityidfield>
+<entityidcolumn>changelogid</entityidcolumn>
+</entityidentifier>
+</field>
+<field>
+<fieldname>assigned_user_id</fieldname>
+<uitype>53</uitype>
+<columnname>smownerid</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Assigned To</fieldlabel>
+<readonly>99</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>2</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~M</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>createdtime</fieldname>
+<uitype>70</uitype>
+<columnname>createdtime</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Created Time</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>3</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>T~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>2</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>parent_id</fieldname>
+<uitype>10</uitype>
+<columnname>parent_id</columnname>
+<tablename>TABLEPREFIX_changelog</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Related To</fieldlabel>
+<readonly>99</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>4</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>N~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+<relatedmodules>
+<relatedmodule>Accounts</relatedmodule>
+<relatedmodule>Contacts</relatedmodule>
+<relatedmodule>Leads</relatedmodule>
+</relatedmodules>
+</field>
+<field>
+<fieldname>description</fieldname>
+<uitype>21</uitype>
+<columnname>description</columnname>
+<tablename>TABLEPREFIX_crmentity</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Modified fields</fieldlabel>
+<readonly>100</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>5</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>user_name</fieldname>
+<uitype>1</uitype>
+<columnname>user_name</columnname>
+<tablename>TABLEPREFIX_changelog</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Modified by</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>6</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+<field>
+<fieldname>modified_date</fieldname>
+<uitype>1</uitype>
+<columnname>modified_date</columnname>
+<tablename>TABLEPREFIX_changelog</tablename>
+<generatedtype>1</generatedtype>
+<fieldlabel>Modified Time</fieldlabel>
+<readonly>1</readonly>
+<presence>2</presence>
+<selected>0</selected>
+<sequence>7</sequence>
+<maximumlength>100</maximumlength>
+<typeofdata>V~O</typeofdata>
+<quickcreate>3</quickcreate>
+<quickcreatesequence></quickcreatesequence>
+<displaytype>1</displaytype>
+<info_type>BAS</info_type>
+<helpinfo><![CDATA[]]></helpinfo>
+<masseditable>0</masseditable>
+</field>
+</fields>
+</block>
+<block>
+<label>LBL_CUSTOM_INFORMATION</label>
+</block>
+</blocks>
+</panel>
+</panels>
+<customviews>
+<customview>
+<viewname>All</viewname>
+<setdefault>true</setdefault>
+<setmetrics>false</setmetrics>
+<setmobile>false</setmobile>
+<fields>
+<field>
+<fieldname>audit_no</fieldname>
+<columnindex>0</columnindex>
+</field>
+<field>
+<fieldname>assigned_user_id</fieldname>
+<columnindex>1</columnindex>
+</field>
+<field>
+<fieldname>createdtime</fieldname>
+<columnindex>2</columnindex>
+</field>
+<field>
+<fieldname>parent_id</fieldname>
+<columnindex>3</columnindex>
+</field>
+</fields>
+</customview>
+</customviews>
+<sharingaccess>
+<default>public_readwritedelete</default>
+</sharingaccess>
+<actions>
+<action>
+<name><![CDATA[Import]]></name>
+<status>enabled</status>
+</action>
+<action>
+<name><![CDATA[Export]]></name>
+<status>enabled</status>
+</action>
+<action>
+<name><![CDATA[Merge]]></name>
+<status>enabled</status>
+</action>
+</actions>
+<customlinks>
+<customlink>
+<linktype>DETAILVIEWWIDGET</linktype>
+<linklabel>DetailViewBlockChangeLogWidget</linklabel>
+<linkurl><![CDATA[block://ChangeLog:modules/ChangeLog/ChangeLog.php]]></linkurl>
+<linkicon><![CDATA[]]></linkicon>
+<sequence>0</sequence>
+</customlink>
+</customlinks>
+<sdk>
+<popup_queries>
+</popup_queries>
+<uitypes>
+</uitypes>
+</sdk>
+</module>

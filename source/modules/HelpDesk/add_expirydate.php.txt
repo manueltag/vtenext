@@ -1,0 +1,143 @@
+<?php
+/*********************************************************************************
+** The contents of this file are subject to the Mozilla Public License. You may
+*not use this file except in compliance with the License
+* The Original Code is: JPLTSolucio, S,L, Open Source based on vTiger CRM
+* The Initial Developer of the Original Code is JPLTSolucio, S.L.
+* Portions created by vtiger are Copyright (C) vtiger. All Rights Reserved.
+*
+ ********************************************************************************/
+
+// Install script for Trouble Tickets Timecards
+require_once('include/database/PearDatabase.php');
+require_once('include/utils/CommonUtils.php');
+
+/** to store the custom view columns of the customview in vtiger_cvcolumnlist table
+  * @param $cvid :: Type Integer
+  * @param $columnlist :: Type Array of columnlists
+ */
+function insertCvColumns($CVid,$columnslist)
+{
+    global $adb;
+    if($CVid != "")
+    {
+        for($i=0;$i<count($columnslist);$i++)
+        {
+            $columnsql = "insert into vtiger_cvcolumnlist (cvid,columnindex,columnname)";
+            $columnsql .= " values (".$CVid.",".$i.",'".$columnslist[$i]."')";
+            $columnresult = $adb->query($columnsql);
+        }
+    }
+}
+
+ //Function used to execute the query and display the success/failure of the query
+function ExecuteQuery($query,$done=false)
+{
+    if ($done) return; // Si ya esta hecho nos vamos
+    
+    global $adb;
+    $status = $adb->query($query);
+    if(is_object($status))
+    {
+        echo '
+            <tr width="100%">
+                <td width="25%"><font color="green"> OK </font></td>
+                <td width="75%">'.$query.'</td>
+            </tr>';
+    }
+    else
+    {
+        echo '
+            <tr width="100%">
+                <td width="25%"><font color="red"> NOK ('.$status.') </font></td>
+                <td width="75%">'.$query.'</td>
+            </tr>';
+    }
+}
+ 
+ $done=false;  // De entrada todo esta hecho
+ 
+ // Tabla para albergar resultados
+ echo '<table border=0 width=90%>';
+ 
+ // Add new field to troubletickets table
+ ExecuteQuery('ALTER TABLE `vtiger_troubletickets` ADD `expiry_date` DATE;',$done);
+
+ // Create new fields in tables `vtiger_field` and `vtiger_def_org_field`
+ // and fix table `vtiger_profile2field` to work with them
+	
+  // Get profile information once for all
+  $profile_query  = 'select distinct profileid from vtiger_profile;';
+  $profile_result = $adb->query($profile_query);
+  $num_profiles   = $adb->num_rows($profile_result);
+
+$fieldlist = array(
+      array('columnname'=>'expiry_date'
+            ,'tablename'=>'vtiger_troubletickets'
+            ,'generatedtype'=>'1'
+            ,'uitype'=>'5'
+            ,'fieldname'=>'expiry_date'
+            ,'fieldlabel'=>'Support Expiry Date'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'0'
+            ,'selected'=>'0'
+            ,'maximumlength'=>'10'
+            ,'sequence'=>6
+            ,'block'=>25
+            ,'displaytype'=>1
+            ,'typeofdata'=>'D~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'BAS'
+            ),
+);  
+$newtabid=13; // HelpDesk
+for($i=0;$i<count($fieldlist);$i++)
+{
+  $newfieldid = $adb->getUniqueID("vtiger_field");
+  $insfield ="INSERT INTO `vtiger_field` ";
+  $insfield.="(`tabid`, `fieldid`, `columnname`, `tablename`, `generatedtype`, `uitype`, `fieldname`, `fieldlabel`, ";
+  $insfield.="`readonly`, `presence`, `selected`, `maximumlength`, `sequence`, `block`, `displaytype`, `typeofdata`, ";
+  $insfield.="`quickcreate`, `quickcreatesequence`, `info_type`) VALUES ($newtabid, $newfieldid, ";
+  $insfield.="'".$fieldlist[$i]['columnname']."', ";
+  $insfield.="'".$fieldlist[$i]['tablename']."', ";
+  $insfield.=$fieldlist[$i]['generatedtype'].", ";
+  $insfield.="'".$fieldlist[$i]['uitype']."', ";
+  $insfield.="'".$fieldlist[$i]['fieldname']."', ";
+  $insfield.="'".$fieldlist[$i]['fieldlabel']."', ";
+  $insfield.=$fieldlist[$i]['readonly'].", ";
+  $insfield.=$fieldlist[$i]['presence'].", ";
+  $insfield.=$fieldlist[$i]['selected'].", ";
+  $insfield.=$fieldlist[$i]['maximumlength'].", ";
+  $insfield.=$fieldlist[$i]['sequence'].", ";
+  $insfield.=$fieldlist[$i]['block'].", ";
+  $insfield.=$fieldlist[$i]['displaytype'].", ";
+  $insfield.="'".$fieldlist[$i]['typeofdata']."', ";
+  $insfield.=$fieldlist[$i]['quickcreate'].", ";
+  $insfield.=$fieldlist[$i]['quickcreatesequence'].", ";
+  $insfield.="'".$fieldlist[$i]['info_type']."');";
+  ExecuteQuery($insfield,$done);
+  $insdofield ="INSERT INTO `vtiger_def_org_field` ";
+  $insdofield.="(`tabid`, `fieldid`, `visible`, `readonly`) VALUES ($newtabid, $newfieldid, ";
+  $insdofield.=$fieldlist[$i]['visible'].", ";
+  $insdofield.=$fieldlist[$i]['readonly'].");";
+  ExecuteQuery($insdofield,$done);
+  // For each existing profile add field
+  for($p=0; $p<$num_profiles; $p++)
+  {
+    $profid = $adb->query_result($profile_result,$p,'profileid');
+    $insp2field ="INSERT INTO `vtiger_profile2field` ";
+    $insp2field.="(`profileid`, `tabid`, `fieldid`, `visible`, `readonly`) VALUES ($profid, $newtabid, $newfieldid, ";
+    $insp2field.=$fieldlist[$i]['visible'].", ";
+    $insp2field.=$fieldlist[$i]['readonly'].");";
+    ExecuteQuery($insp2field,$done);
+  }
+}
+
+ $done=false;  // A partir de aqui esta pendiente
+
+ // Tabla para albergar resultados
+ echo '</table>';
+  
+?>

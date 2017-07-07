@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<module>
+<exporttime>2010-07-27 08:38:10</exporttime>
+<name>ServiceContracts</name>
+<label>Service Contracts</label>
+<parent>Support</parent>
+<version>1.1</version>
+<dependencies>
+<vtiger_version>3</vtiger_version>
+<vtiger_max_version>3.*</vtiger_max_version>
+</dependencies>
+<tables>
+<table>
+<name>vtiger_servicecontracts</name>

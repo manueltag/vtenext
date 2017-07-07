@@ -1,0 +1,28 @@
+
+@mixin turboliftEntryBase() {
+	cursor: pointer;
+    padding: 10px;
+    border-bottom: 1px solid $vte-button-border;
+    border-left: 1px solid $vte-button-border;
+    border-right: 1px solid $vte-button-border;
+	/*font-weight: 700;*/
+}
+
+@mixin defaultLetterIcon() {
+	font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;	
+	content: attr(data-first-letter);
+}
+
+@mixin materialIconBase() {
+	@extend .vteicon;
+	&:after {
+		content: "";
+	}
+}
+
+@mixin awesomeIconBase() {
+	@extend .vteicon2;
+	&:after {
+		content: "";
+	}
+}

@@ -1,0 +1,460 @@
+<?php
+/*********************************************************************************
+** The contents of this file are subject to the Mozilla Public License. You may
+*not use this file except in compliance with the License
+* The Original Code is: JPLTSolucio, S,L, Open Source based on vTiger CRM
+* The Initial Developer of the Original Code is JPLTSolucio, S.L.
+* Portions created by vtiger are Copyright (C) vtiger. All Rights Reserved.
+*
+ ********************************************************************************/
+
+// Install script for Trouble Tickets Timecards
+require_once('include/database/PearDatabase.php');
+require_once('include/utils/CommonUtils.php');
+
+/** to store the custom view columns of the customview in vtiger_cvcolumnlist table
+  * @param $cvid :: Type Integer
+  * @param $columnlist :: Type Array of columnlists
+ */
+function insertCvColumns($CVid,$columnslist)
+{
+    global $adb;
+    if($CVid != "")
+    {
+        for($i=0;$i<count($columnslist);$i++)
+        {
+            $columnsql = "insert into vtiger_cvcolumnlist (cvid,columnindex,columnname)";
+            $columnsql .= " values (".$CVid.",".$i.",'".$columnslist[$i]."')";
+            $columnresult = $adb->query($columnsql);
+        }
+    }
+}
+
+ //Function used to execute the query and display the success/failure of the query
+function ExecuteQuery($query,$done=false)
+{
+    if ($done) return; // Si ya esta hecho nos vamos
+    
+    global $adb;
+    $status = $adb->query($query);
+    if(is_object($status))
+    {
+        echo '
+            <tr width="100%">
+                <td width="25%"><font color="green"> OK </font></td>
+                <td width="75%">'.$query.'</td>
+            </tr>';
+    }
+    else
+    {
+        echo '
+            <tr width="100%">
+                <td width="25%"><font color="red"> NOK ('.$status.') </font></td>
+                <td width="75%">'.$query.'</td>
+            </tr>';
+    }
+}
+ 
+ $done=false;  // De entrada todo esta hecho
+ 
+ // Tabla para albergar resultados
+ echo '<table border=0 width=90%>';
+ 
+// Create the new tables needed
+
+// `vtiger_timecardtypes`
+
+  $create_query = "CREATE TABLE `vtiger_timecardtypes` (
+      `timecardtypes_id` int(19) NOT NULL default '0',
+      `timecardtypes` varchar(200) default NULL,
+      `presence` int(1) NOT NULL default '0',
+      `picklist_valueid` int(19) NOT NULL default '0',
+      PRIMARY KEY  (`timecardtypes_id`)
+  ) ENGINE=InnoDB;";
+
+ExecuteQuery($create_query,$done);
+
+$create_query = "CREATE TABLE `vtiger_timecardtypes_seq` (
+  `id` int(19) NOT NULL default '0'
+) ENGINE=InnoDB;";
+
+ExecuteQuery($create_query,$done);
+
+// Fill in default values
+ExecuteQuery("INSERT INTO vtiger_timecardtypes_seq VALUES (0);",$done);
+$pklistid = $adb->getUniqueID("vtiger_picklist");
+ExecuteQuery("INSERT INTO vtiger_picklist VALUES ($pklistid,'timecardtypes');",$done);
+$newdtid = $adb->getUniqueID("vtiger_timecardtypes");
+$newpkid = $adb->getUniqueID("vtiger_picklistvalues");
+$firstpkid=$newpkid;
+ExecuteQuery("INSERT INTO vtiger_timecardtypes VALUES ($newdtid,'Comment',1,$newpkid);",$done);
+$newdtid = $adb->getUniqueID("vtiger_timecardtypes");
+$newpkid = $adb->getUniqueID("vtiger_picklistvalues");
+ExecuteQuery("INSERT INTO vtiger_timecardtypes VALUES ($newdtid,'BlockedComment',1,$newpkid);",$done);
+$newdtid = $adb->getUniqueID("vtiger_timecardtypes");
+$newpkid = $adb->getUniqueID("vtiger_picklistvalues");
+ExecuteQuery("INSERT INTO vtiger_timecardtypes VALUES ($newdtid,'InvoiceLine',1,$newpkid);",$done);
+
+// Insert permissions for new picklist once for each role
+
+  // Get role information once for all operations that need it now
+  $role_query  = 'select distinct roleid from vtiger_role;';
+  $role_result = $adb->query($role_query);
+  $num_roles   = $adb->num_rows($role_result);
+
+  // For each existing role add picklist permissions
+  for($r=0; $r<$num_roles; $r++)
+  {
+    $roleid = $adb->query_result($role_result,$r,'roleid');
+    
+    for ($numv=0; $numv<3; $numv++) {  // 3 valores que hay en la lista
+        $plvid=$firstpkid+$numv;
+        $sorder=($numv+1)*5;
+        $insr2p = "INSERT INTO `vtiger_role2picklist` (roleid,picklistvalueid,picklistid,sortid) VALUES ('$roleid',$plvid,$pklistid,$sorder);";
+        ExecuteQuery($insr2p,$done);
+    }
+  }
+
+// `vtiger_tttimecards`
+
+  $create_query = "CREATE TABLE `vtiger_tttimecards` (
+      `tttimecardid` int(19) NOT NULL auto_increment,
+      `ticketid` int(19) NOT NULL default '0',
+      `sortorderid` int(2) NOT NULL default '0',
+      `creatorid` int(19) NOT NULL default '0',
+      `createdtime` datetime NOT NULL default '0000-00-00 00:00:00',
+      `workerid` int(19) NOT NULL default '0',
+      `workdate` date NOT NULL default '0000-00-00',
+      `worktime` time NOT NULL default '00:00:00',
+      `product_id` varchar(100) default NULL,
+      `tcunits` decimal(6,2) default '0.00',
+      `type` varchar(150) default NULL,
+      `description` text,
+      PRIMARY KEY  (`tttimecardid`),
+      KEY `tttimecards_sortorderid_idx` (`sortorderid`),
+      KEY `tttimecards_workdate_idx` (`workdate`),
+      KEY `fk_1_vtiger_tttimecards` (`ticketid`)
+  ) ENGINE=InnoDB;";
+
+ExecuteQuery($create_query,$done);
+
+// Filters for `vtiger_tttimecards`
+
+  $adb->query("ALTER TABLE `vtiger_tttimecards`
+  ADD CONSTRAINT `fk_1_vtiger_tttimecards` FOREIGN KEY (`ticketid`) REFERENCES `vtiger_troubletickets` (`ticketid`) ON DELETE CASCADE;");
+
+// Add another state to trouble tickets in table `vtiger_ticketstatus`
+
+  $newdtid = $adb->getUniqueID("vtiger_ticketstatus");
+  $newpkid = $adb->getUniqueID("vtiger_picklistvalues");
+  ExecuteQuery("INSERT INTO vtiger_ticketstatus VALUES ($newdtid,'Maintain',1,$newpkid);",$done);
+  $pklid_query  = "select picklistid from vtiger_picklist where name='ticketstatus'";
+  $pklid_result = $adb->query($pklid_query);
+  $pklid = $adb->query_result($pklid_result,0,'picklistid');
+  // For each existing role add picklist permissions
+  for($r=0; $r<$num_roles; $r++)
+  {
+    $roleid = $adb->query_result($role_result,$r,'roleid');
+    $sorder=55;
+    $insr2p = "INSERT INTO `vtiger_role2picklist` (roleid,picklistvalueid,picklistid,sortid) VALUES ('$roleid',$newpkid,$pklid,$sorder);";
+    ExecuteQuery($insr2p,$done);
+  }
+
+// Create new tab in table `vtiger_tab`. We don't show this tab on menu but this is neccessary to be able to use other internal functions
+  // First we obtain the next available tabid
+  $result   = $adb->query("select max(tabid) as maxtabid from vtiger_tab;");
+  $newtabid = $adb->query_result($result,0,'maxtabid') + 1;
+  // Now we create new tab entry
+  $insquery="INSERT INTO `vtiger_tab` (`tabid`, `name`, `presence`, `tabsequence`, `tablabel`, `modifiedby`, `modifiedtime`, `customized`, `ownedby`) VALUES ($newtabid, 'TimeCard', 1, 1, 'LBL_TimeCard', NULL, NULL, 0, 0);";
+  ExecuteQuery($insquery,$done);
+
+// Insert new blocks in table `vtiger_blocks` for visualization purposes
+  // First we obtain the next available blockid
+  $result     = $adb->query("select max(blockid) as maxblockid from vtiger_blocks;");
+  $newblockid = $adb->query_result($result,0,'maxblockid') + 1;
+  // Now we create new block entries
+  $insquery="INSERT INTO `vtiger_blocks` (`blockid`, `tabid`, `blocklabel`, `sequence`, `show_title`, `visible`, `create_view`, `edit_view`, `detail_view`) VALUES ($newblockid, $newtabid, 'LBL_TimeCard', 1, 0, 0, 0, 0, 0);";
+  ExecuteQuery($insquery,$done);
+  $insquery="INSERT INTO `vtiger_blocks` (`blockid`, `tabid`, `blocklabel`, `sequence`, `show_title`, `visible`, `create_view`, `edit_view`, `detail_view`) VALUES (".($newblockid+1).", $newtabid, 'LBL_TimeCard', 2, 1, 0, 0, 0, 0);";
+  ExecuteQuery($insquery,$done);
+  $insquery="INSERT INTO `vtiger_blocks` (`blockid`, `tabid`, `blocklabel`, `sequence`, `show_title`, `visible`, `create_view`, `edit_view`, `detail_view`) VALUES (".($newblockid+2).", $newtabid, 'LBL_TimeCard', 3, 1, 0, 0, 0, 0);";
+  ExecuteQuery($insquery,$done);
+  $insquery="INSERT INTO `vtiger_blocks` (`blockid`, `tabid`, `blocklabel`, `sequence`, `show_title`, `visible`, `create_view`, `edit_view`, `detail_view`) VALUES (".($newblockid+3).", $newtabid, 'LBL_TICKET_INFORMATION', 4, 0, 0, 0, 0, 0);";
+  ExecuteQuery($insquery,$done);
+
+  // Get profile information once for all operations that need it now
+  $profile_query  = 'select distinct profileid from vtiger_profile;';
+  $profile_result = $adb->query($profile_query);
+  $num_profiles   = $adb->num_rows($profile_result);
+
+  // For each existing profile add tab permissions
+  for($p=0; $p<$num_profiles; $p++)
+  {
+    $profid = $adb->query_result($profile_result,$p,'profileid');
+
+    $insp2tab = "INSERT INTO vtiger_profile2tab (profileid,tabid,permissions) VALUES ($profid,$newtabid,0);";
+    ExecuteQuery($insp2tab,$done);
+
+    $insp2tabfijo ='INSERT INTO vtiger_profile2standardpermissions (profileid,tabid,Operation,permissions) VALUES';
+    for ($tipoop=0; $tipoop<6; $tipoop++) {  // 6 tipos de operacion del 0 al 5
+        $insp2tab="$insp2tabfijo ($profid, $newtabid, $tipoop, 0);";
+        ExecuteQuery($insp2tab,$done);
+    }
+  }
+
+// Create new fields in tables `vtiger_field` and `vtiger_def_org_field`
+// and fix table `vtiger_profile2field` to work with them
+	
+  // Get profile information once for all
+  $profile_query  = 'select distinct profileid from vtiger_profile;';
+  $profile_result = $adb->query($profile_query);
+  $num_profiles   = $adb->num_rows($profile_result);
+
+$fieldlist = array(
+      array('columnname'=>'workdate'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'1'
+            ,'uitype'=>'5'
+            ,'fieldname'=>'workdate'
+            ,'fieldlabel'=>'LBL_TCDate'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'0'
+            ,'maximumlength'=>'10'
+            ,'sequence'=>'1'
+            ,'block'=>$newblockid
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'D~M'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'workerid'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'1'
+            ,'uitype'=>'52'
+            ,'fieldname'=>'workerid'
+            ,'fieldlabel'=>'LBL_TCWorker'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'1'
+            ,'maximumlength'=>'10'
+            ,'sequence'=>'2'
+            ,'block'=>$newblockid
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'I~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'tcunits'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'1'
+            ,'uitype'=>'1'
+            ,'fieldname'=>'tcunits'
+            ,'fieldlabel'=>'LBL_TCUnits'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'0'
+            ,'maximumlength'=>'9'
+            ,'sequence'=>'3'
+            ,'block'=>$newblockid
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'N~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'worktime'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'1'
+            ,'uitype'=>'1'
+            ,'fieldname'=>'worktime'
+            ,'fieldlabel'=>'LBL_TCTime'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'0'
+            ,'maximumlength'=>'9'
+            ,'sequence'=>'1'
+            ,'block'=>($newblockid+1)
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'T~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'product_id'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'1'
+            ,'uitype'=>'59'
+            ,'fieldname'=>'product_id'
+            ,'fieldlabel'=>'LBL_PRODUCT'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'0'
+            ,'maximumlength'=>'9'
+            ,'sequence'=>'2'
+            ,'block'=>($newblockid+1)
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'I~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'description'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'1'
+            ,'uitype'=>'19'
+            ,'fieldname'=>'description'
+            ,'fieldlabel'=>'LBL_DESCRIPTION'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'0'
+            ,'maximumlength'=>'100'
+            ,'sequence'=>'3'
+            ,'block'=>($newblockid+1)
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'V~M'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'type'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'0'
+            ,'uitype'=>'15'
+            ,'fieldname'=>'timecardtypes'
+            ,'fieldlabel'=>'LBL_TCType'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'0'
+            ,'maximumlength'=>'100'
+            ,'sequence'=>'1'
+            ,'block'=>($newblockid+2)
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'V~M'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'newtc'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'0'
+            ,'uitype'=>'56'
+            ,'fieldname'=>'newtc'
+            ,'fieldlabel'=>'LBL_NewTC'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'1'
+            ,'maximumlength'=>'1'
+            ,'sequence'=>'2'
+            ,'block'=>($newblockid+2)
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'I~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'newstate'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'0'
+            ,'uitype'=>'15'
+            ,'fieldname'=>'ticketstatus'
+            ,'fieldlabel'=>'LBL_NewState'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'1'
+            ,'maximumlength'=>'1'
+            ,'sequence'=>'1'
+            ,'block'=>($newblockid+3)
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'I~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+      array('columnname'=>'newresp'
+            ,'tablename'=>'vtiger_tttimecards'
+            ,'generatedtype'=>'0'
+            ,'uitype'=>'101'
+            ,'fieldname'=>'newresp'
+            ,'fieldlabel'=>'LBL_ReassignTicketTo'
+            ,'readonly'=>'1'
+            ,'visible'=>'0'
+            ,'presence'=>'1'
+            ,'selected'=>'1'
+            ,'maximumlength'=>'1'
+            ,'sequence'=>'2'
+            ,'block'=>($newblockid+3)
+            ,'displaytype'=>'1'
+            ,'typeofdata'=>'I~O'
+            ,'quickcreate'=>'1'
+            ,'quickcreatesequence'=>'NULL'
+            ,'info_type'=>'NULL'
+            ),
+);  
+
+for($i=0;$i<count($fieldlist);$i++)
+{
+  $newfieldid = $adb->getUniqueID("vtiger_field");
+  $insfield ="INSERT INTO `vtiger_field` ";
+  $insfield.="(`tabid`, `fieldid`, `columnname`, `tablename`, `generatedtype`, `uitype`, `fieldname`, `fieldlabel`, ";
+  $insfield.="`readonly`, `presence`, `selected`, `maximumlength`, `sequence`, `block`, `displaytype`, `typeofdata`, ";
+  $insfield.="`quickcreate`, `quickcreatesequence`, `info_type`) VALUES ($newtabid, $newfieldid, ";
+  $insfield.="'".$fieldlist[$i]['columnname']."', ";
+  $insfield.="'".$fieldlist[$i]['tablename']."', ";
+  $insfield.=$fieldlist[$i]['generatedtype'].", ";
+  $insfield.="'".$fieldlist[$i]['uitype']."', ";
+  $insfield.="'".$fieldlist[$i]['fieldname']."', ";
+  $insfield.="'".$fieldlist[$i]['fieldlabel']."', ";
+  $insfield.=$fieldlist[$i]['readonly'].", ";
+  $insfield.=$fieldlist[$i]['presence'].", ";
+  $insfield.=$fieldlist[$i]['selected'].", ";
+  $insfield.=$fieldlist[$i]['maximumlength'].", ";
+  $insfield.=$fieldlist[$i]['sequence'].", ";
+  $insfield.=$fieldlist[$i]['block'].", ";
+  $insfield.=$fieldlist[$i]['displaytype'].", ";
+  $insfield.="'".$fieldlist[$i]['typeofdata']."', ";
+  $insfield.=$fieldlist[$i]['quickcreate'].", ";
+  $insfield.=$fieldlist[$i]['quickcreatesequence'].", ";
+  $insfield.="'".$fieldlist[$i]['info_type']."');";
+  ExecuteQuery($insfield,$done);
+  $insdofield ="INSERT INTO `vtiger_def_org_field` ";
+  $insdofield.="(`tabid`, `fieldid`, `visible`, `readonly`) VALUES ($newtabid, $newfieldid, ";
+  $insdofield.=$fieldlist[$i]['visible'].", ";
+  $insdofield.=$fieldlist[$i]['readonly'].");";
+  ExecuteQuery($insdofield,$done);
+  // For each existing profile add field
+  for($p=0; $p<$num_profiles; $p++)
+  {
+    $profid = $adb->query_result($profile_result,$p,'profileid');
+    $insp2field ="INSERT INTO `vtiger_profile2field` ";
+    $insp2field.="(`profileid`, `tabid`, `fieldid`, `visible`, `readonly`) VALUES ($profid, $newtabid, $newfieldid, ";
+    $insp2field.=$fieldlist[$i]['visible'].", ";
+    $insp2field.=$fieldlist[$i]['readonly'].");";
+    ExecuteQuery($insp2field,$done);
+  }
+}
+
+ $done=false;  // A partir de aqui esta pendiente
+
+ // Tabla para albergar resultados
+ echo '</table>';
+
+  // regenerate tabdata.php
+  print "Regenerate tabdata.php<br>";
+  create_tab_data_file();
+  
+  print '<br/>You should check apache and vtiger logs for any errors before continuing.<br/>';
+  print "<br/>Thanks for trying out the TSolucio::Timecards module.<br/>Joe. TSolucio<br/>";
+  
+?>

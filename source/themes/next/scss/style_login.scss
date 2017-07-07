@@ -1,0 +1,182 @@
+/*********************************************************************************
+** The contents of this file are subject to the vtiger CRM Public License Version 1.0
+* ("License"); You may not use this file except in compliance with the License
+* The Original Code is:  vtiger CRM Open Source
+* The Initial Developer of the Original Code is vtiger.
+* Portions created by vtiger are Copyright (C) vtiger.
+* All Rights Reserved.
+********************************************************************************/
+
+@import 'fonts';
+@import 'vars/colors';
+@import 'material/shadows';
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background-color: $login-background;
+	background-image: url('images/loginback.png');
+    background-size: cover;
+}
+
+/*
+#loginContainer {
+	display: table;
+	height: 100%;
+	margin: 0 auto;
+	width: 350px;
+	max-width: 350px;
+}
+	
+#loginContainer .loginContainerInner {
+	display: table-cell;
+	vertical-align: middle;
+}
+*/
+	
+#loginContainer .loginBox {
+    box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21);
+    padding: 15px;
+    position: absolute;
+    width: 360px;
+    top: 50%;
+    right: 150px;
+    transform: translateY(-50%);
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 30px;
+}
+	
+#loginContainer .logoContainer {
+	margin-bottom: 40px;
+	
+	& .logoContainerInner {
+		margin-top: 20px;
+		
+		& .loginLogo {
+			width: 200px;
+		}
+	}
+}
+	
+#loginContainer .inputContainer {
+    margin: 0 0 30px 0;
+    position: relative;
+    padding-top: 5px;
+    
+    & input {
+		width: 100%;
+		font-size: 14px;
+		height: 45px;
+		
+		&:focus ~ label,
+		&:valid ~ label {
+			color: $primary;
+			
+			transform: translate(-12%, -160%) scale(0.75);
+			-webkit-transform: translate(-12%, -160%) scale(0.75);
+			-moz-transform: translate(-12%, -160%) scale(0.75);
+			-o-transform: translate(-12%, -160%) scale(0.75);
+			-ms-transform: translate(-12%, -160%) scale(0.75);
+	    }
+	    
+	    &:focus ~ i,
+	    &:valid ~ i {
+	    	color: $primary;
+	    }
+	}
+	
+	& label {
+		position: absolute;
+	    top: 50%;
+	    left: 0px;
+	    color: #666;
+	    font-size: 16px;
+	    font-weight: 300;
+	    
+	    transition: 0.2s ease;
+		-webkit-transition: 0.2s ease;
+		-moz-transition: 0.2s ease;
+		-o-transition: 0.2s ease;
+	    
+		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+	}
+	
+	& i {
+    	position: absolute;
+	    top: 50%;
+	    right: 0;
+	    color: #666;
+	    font-size: 30px;
+	    
+	    transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		-moz-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+    }
+}
+
+#loginContainer .recoverContainer a {
+	color: #666;
+}
+
+#mask_login {
+	background: transparent;
+	border: 0px none;
+	height: 100%;
+}
+
+#logout_reason_msg {
+	position: relative;
+	padding-top: 0px;
+}
+
+input {
+	border:1px solid $vte-primary;
+}
+
+.logintbl {
+	background-color: $vte-submenu;
+	border: 1px solid $vte-primary;
+}
+
+.loginsubmit {
+	font-size:20px;
+	background-color: $vte-primary;
+	color: $white;
+	width:274px;
+	height:40px;
+	cursor:pointer;
+}
+
+.logininput {
+	font-size:24px;
+	padding:5px;
+	color:#666;
+	border: 0px;
+	width:274px;
+}
+
+.logintxt {
+	font-size:9px;
+	line-height: 18px;
+	color:$vte-text-title;
+	text-decoration:none;
+	vertical-align: top;
+}
+
+#vte_footer {
+	padding:0px 5px 0px 5px;
+	position: absolute;
+	bottom: 0px;
+	
+	td {
+		font-size:9px;
+	}
+}

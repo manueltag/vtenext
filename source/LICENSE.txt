@@ -1,0 +1,133 @@
+﻿VTECRM Business License
+
+The VTECRM software (“the Software”) is copyright © 2014 VTECRM LIMITED of London UK (“VTECRM”). Use of the Software is permitted subject to the below terms and conditions. A company or other legal entity wishing to deploy the Software (“Customer”) must accept these terms. Without acceptance, Customer may not use the Software except as permitted under the GNU Affero General Public License version 3 (“AGPL”).
+
+Article 1. 	Grant of license
+VTECRM hereby grants Customer a limited, non-exclusive license to install, deploy and use the Software for its business operations.
+The license is limited to Customer. Customer may not distribute copies to third parties, and may not make available functionality of the Software to third parties, for example through a Software-as-a-Service business models or by offering the services of the Software to third parties. Independent contractors working for the sole benefit of Customer, e.g. consultants and temporary employees hired through a staffing agency, are not considered third parties.
+The license includes the right to make modifications to the Software and to have independent contractors make modifications to the Software for the sole benefit of Customer. 
+VTECRM may make available optional modules to the Software for separate use. If and when Customer acquires such modules, the present license terms shall apply to such modules. All references to the Software shall be construed as applying to modules, except where indicated otherwise.
+The Software is licensed, not sold. No copyrights or other intellectual property rights are transferred to Customer. The intellectual property on any modifications made by or for Customer shall rest with Customer, subject to the underlying intellectual property rights of VTECRM.
+
+Article 2. 	Installation of the Software
+To acquire the Software, Customer must register with VTECRM and provide the requested business information. Customer shall keep VTECRM informed of any changes to this information.
+After registration VTECRM will provide Customer with a hyperlink and other information necessary to download and acquire a copy of the Software.
+Customer is itself responsible for installing, deploying and using the Software for its business operations. VTECRM will provide installation instructions for the most common platforms.
+In case Customer has already acquired a copy of the Software under the AGPL, Customer is deemed to have changed the license terms to that of the present agreement upon payment of the license fee.
+
+Article 3. 	Support and updates
+For as long as a support package has been purchased, VTECRM will provide a reasonable level of technical and user support to Customer and its employees. 
+If a fixed license fee is paid, a support package is included in the fee. If a one-shot license fee is paid, support packages must be purchased separately on a per-user, per-year basis. For the first twenty-four (24) months, purchasing a support package is mandatory.
+For as long as a support package has been purchased, VTECRM will from time to time make available updates that address bugs or improve the functioning of the Software. VTECRM or its partners will alert Customer to any available updates. Customer is itself responsible for installing, deploying and using the updates. VTECRM may refuse support for any issue that has been fixed in an update not installed by Customer.
+An update may provide terms additional to the terms of this agreement. Customer will be informed in advance if this is the case and will be granted an opportunity to refuse that update. By installing such an update Customer accepts the additional terms, which then become part of this agreement.
+
+Article 4. 	Collection of information
+The Software automatically and from time to time may collect certain information, which may include personally identifiable information of individual users. This information shall not be correlated with any other personal information related to individual users. The information collected by the Software is used anonymously in aggregation with similar information from other users of the Software for analytical purposes to identify new problems and bugs and for improvement and development of the Software and for statistical purposes.
+Customer, also on behalf of its users, agrees that VTECRM may collect and use the information as described above. You are giving this consent on behalf of all users of all computers where the Software will be used under this license and you accept full responsibility for informing all users and acquiring their fully informed, free and valid consent with processing of their personal information by the Software as described above.
+
+Article 5. 	Payment terms
+In consideration for the license and support provided to VTECRM, Customer must pay the fee(s) as reported to Customer. Fees are based on the number of users granted accounts to the Software.
+Fees are due in advance and are valid for one-year terms, unless explicitly indicated otherwise by VTECRM. The agreement terminates automatically if Customer does not pay a required fee in time. 
+For additional modules, separate fees apply. These fees also are valid for the same term unless explicitly indicated otherwise by VTECRM, but only the usage right for the module terminates if Customer does not pay a required module fee in time. 
+All amounts payable hereunder by Customer shall be payable in Euros without deductions for taxes, assessments, fees, or charges of any kind. Payment shall always be done by Customer no later than 30 days after invoice date. In case of late payments, the statutory interest under Dutch law shall be added to the fee as calculated on a monthly basis from the moment the original term of payment expired, and any costs, fees and expenses incurred in connection with the collection of the debt as provided by Dutch law.
+Records kept by VTECRM shall be regarded as proof of fees due, unless Customer can prove such records are inaccurate.
+VTECRM has the right to annually perform an audit to verify Customer’s compliance with these license terms, in particular regarding the number of persons that use the Software. The audit shall be performed by an independent third party (such as a chartered accountant) in confidence. The auditor may only report the data relevant for the compliance verification VTECRM. The costs of the audit shall be borne by VTECRM, unless the report reveals that Customer has failed to pay the correct license fee.
+
+Article 6. 	Limitation of liability
+To the fullest extent permitted by law, and unless explicitly indicated in writing otherwise, VTECRM expressly disclaims all conditions, representations or warranties, express or implied, including without limitation any implied warranties of merchantability, fitness for a particular purpose, and non-infringement of third party rights regarding the Software. The Software is not fault-tolerant and as such is not designed for use in hazardous environments requiring fail-safe performance.
+VTECRM shall be liable to Customer only for direct damages arising out of its intentional misconduct towards Customer or materially negligent performance of any of its obligations under the agreement. 
+VTECRM shall never be liable for any consequential, special, punitive and/or incidental damages, including loss of profits, arising out of or in connection with the agreement, even if advised of the possibility of such damages.
+Any liability of VTECRM for an event shall be limited to the license fee actually paid by Customer for the year in which the event occurred. 
+No liability shall exist for damages that have not been reported to VTECRM in writing within two weeks of their occurrence, for damages that result from bugs fixed in an update not installed by Customer, or for damages where Customer failed to take appropriate measures to limit such damages. 
+Customer shall indemnify and hold harmless VTECRM, its affiliates, officers, agents and employees from and against any claims, demands, or causes of action whatsoever in connection with the Software, including without limitation those arising on account of Customer’s modification or enhancement of the Software or otherwise caused by, or arising out of, or resulting from, the exercise or practice of the license granted hereunder by VTECRM.
+
+Article 7. 	Term and termination
+This license agreement is entered into on the date Customer acquires the Software from VTECRM and remains effective for successive one-year periods thereafter, unless terminated in accordance with the provisions below. If a one-shot license is chosen, the license agreement remains effective for a two-year period, after which it is automatically renewed for successive one-year periods thereafter, unless terminated in accordance with the provisions below.
+Customer may terminate this agreement at any time by providing written notice to VTECRM. No refunds will be given.
+VTECRM may terminate this agreement by giving written notice at least three months prior to the end of the then-current license term.
+Either party may further terminate this agreement if the other party blamefully fails to comply with the material obligations under the agreement, but only after the party that failed to comply has not remedied the failure within a reasonable time period after having received a written notice of default that is adequate and as detailed as possible.
+Either party may immediately terminate the agreement by written notice to the other party, without the requirement for notice of default or intervention of the courts, in the event of the following: if the other party has been granted suspension of payments, whether provisionally or not; if a petition for bankruptcy has been filed with respect to the other party; if the other party files for bankruptcy itself; or if the other party’s enterprise is dissolved or terminated, except for the purpose of a merger with or absorption by another company.
+After termination, Customer may no longer use the Software except in accordance with the terms of the AGPL.
+
+Article 8. 	Change of terms and pricing
+VTECRM may change or add to these terms and conditions as well as any prices once every calendar year. VTECRM shall inform Customer in writing at least thirty days before their taking effect. 
+If Customer is unwilling to accept a change or addition, Customer must terminate the agreement until the date the changes take effect.
+
+Article 9. 	Law and venue
+Dutch law applies to this agreement.
+Except to the extent determined otherwise by mandatory applicable law all disputes arising in connection with the Software shall be brought before the courts of Amsterdam, the Netherlands.
+In case any part of these terms and conditions are declared legally invalid, this shall not affect the validity of the whole of the agreement. The parties shall in such an event agree on one or more replacement provisions that approximate the original intent of the invalid provision(s) within the limits of the law.
+
+Article 10. 	Miscellaneous terms
+For any clause in this agreement that demands that a statement must be done "in writing" to be legally valid, a statement by e-mail or fax shall be sufficient provided with sufficient certainty the authenticity of the sender can be established and the integrity of the statement has not been compromised.
+The version of any communication of information as recorded by VTECRM shall be deemed to be authentic, unless you supply proof to the contrary.
+VTECRM is entitled to transfer its rights and obligations under this agreement to a third party as part of an acquisition of the Software or the associated business activities.
+
+----------------------------------------------------------------------------------------------------
+
+Traduzione letterale, senza valore legale, della licenza business VTECRM riportata sopra.
+
+Licenza Business VTECRM
+
+Il software VTECRM (“Software”) è protetto da copyright e appartiene a VTECRM LIMITED di Londra, UK (“VTECRM”). L'utilizzo del Software è soggetto ai termini e alle condizioni riportate nel seguito. Una società o altro soggetto giuridico che desidera distribuire il Software ("Cliente") deve accettare questi termini di licenza. In assenza di tale accettazione, il Cliente non potrà utilizzare il Software ad eccezione di quanto consentito ai sensi della GNU Affero General Public License versione 3 ("AGPL").
+
+Articolo 1. 	Concessione di licenza
+VTECRM concede al Cliente una licenza limitata e non esclusiva per installare, distribuire e utilizzare il Software per le proprie attività di business. 
+La licenza è ristretta alle sole attività del Cliente. Il Cliente non può distribuirne copie e non può rendere disponibili a terze parti funzionalità del Software, ad esempio tramite un modello di diffusione di tipo Software-as-a-Service. Operatori indipendenti, che lavorano ad esclusivo beneficio del Cliente, come ad esempio consulenti e lavoratori temporanei assunti attraverso un agenzia di ricerca personale, non sono considerati terze parti.
+La licenza include il diritto di apportare modifiche al Software e ad avere operatori indipendenti che apportano modifiche al Software per il solo beneficio del Cliente. 
+VTECRM può rendere disponibili moduli opzionali per il Software ad uso indipendente. Se e quando Cliente acquisisce tali moduli, le presenti condizioni di licenza si applicano a tali moduli. Tutti i riferimenti al Software sono da intendersi come applicabile ai moduli, se non diversamente indicato. 
+Il Software è concesso in licenza, non venduto. Nessun diritto di copyright o altri diritti di proprietà intellettuale sono trasferiti al Cliente. La proprietà intellettuale su eventuali modifiche apportate da o per il Cliente spetta al Cliente, e sarà soggetta ai diritti di proprietà intellettuale di VTECRM.
+
+Articolo 2. 	Installazione del Software
+Per acquisire il Software, il Cliente deve registrarsi presso VTECRM e fornire le informazioni richieste. Il Cliente dovrà informare VTECRM nel caso di qualsiasi modifica di tali informazioni.
+Dopo la registrazione VTECRM fornirà al Cliente la modalità e altre informazioni necessarie per scaricare e utilizzare una copia del Software.
+Il Cliente è responsabile dell'installazione, la distribuzione e l'utilizzo del Software per le sue attività di business. VTECRM fornirà le istruzioni di installazione per le piattaforme più comuni.
+Nel caso in cui il Cliente abbia già acquisito una copia del software sotto licenza AGPL, è ritenuto a cambiare i termini di licenza dalla precedente al presente accordo, attraverso il pagamento del canone di licenza.
+
+Articolo 3. 	Supporto e aggiornamenti
+Finché il Cliente risulta coperto da un pacchetto di supporto regolarmente acquistato, VTECRM fornirà un ragionevole livello di supporto tecnico al cliente e ai suoi dipendenti.
+Se il Cliente acquista una licenza a canone fisso, il supporto è incluso. Se viene acquistata una licenza di tipo one-shot, il supporto deve essere acquistato separatamente e il prezzo sarà calcolato in base al numero di utenti sull'intero anno. Per i primi ventiquattro (24) mesi, l'acquisto di un pacchetto di supporto è obbligatorio.
+Finché il Cliente risulta coperto da un pacchetto di supporto regolarmente acquistato, VTECRM sarà di volta in volta responsabile di garantire gli aggiornamenti disponibili del Software che ne risolvono gli errori e ne migliorano il funzionamento. VTECRM, o i suoi partner, avviseranno il Cliente in caso di eventuale disponibilità di tali aggiornamenti. Il Cliente è responsabile dell'installazione, della distribuzione e dell'utilizzo degli aggiornamenti. VTECRM può rifiutare il supporto per qualsiasi problema risolto da un aggiornamento non installato dal Cliente.
+Un aggiornamento può comportare termini supplementari in aggiunta ai termini di questo accordo. In questo caso, il Cliente sarà informato in anticipo avrà la possibilità di rifiutare tale aggiornamento. Con l'installazione dell'aggiornamento il Cliente accetta le condizioni aggiuntive, che poi entreranno a far parte di questo accordo.
+
+Articolo 4. 	Raccolta di informazioni
+Automaticamente il Software può raccogliere alcune informazioni che possono includere dati personali dei singoli utenti. Queste informazioni non devono essere correlate con altre informazioni personali relative ai singoli utenti. Le informazioni raccolte dal Software vengono utilizzate in modo anonimo in aggregazione con informazioni simili di altri utenti del Software per scopi analitici al fine di identificare possibili problemi o bug e per il miglioramento e lo sviluppo del Software e per fini statistici.
+Il Cliente, anche a nome dei suoi utenti, accetta che VTECRM possa raccogliere e utilizzare le informazioni come descritto sopra. Si sta concedendo il consenso a nome di tutti gli utenti e per tutti i computer in cui verrà utilizzato il software sotto questa licenza e si accetta la piena responsabilità di informare tutti gli utenti e di acquisire il loro pieno, libero e valido consenso per il trattamento dei dati personali da parte del Software come sopra descritto.
+
+Articolo 5. 	Termini di pagamento
+In merito alla licenza e al supporto fornito da VTECRM, il Cliente deve corrispondere il pagamento di un canone così come gli è stato riportato. Le tariffe sono basate sul numero di utenti attivati nel Software.
+Il pagamento deve essere corrisposto in anticipo ed è valido per la durata di un anno, salvo diversa ed esplicita indicazione di VTECRM. L'accordo termina automaticamente se il Cliente non rispetta i termini di pagamento.
+Per i moduli aggiuntivi, vengono applicate diverse condizioni di pagamento. Queste condizioni sono valide per lo stesso periodo di tempo, salvo diversa ed esplicita indicazione di VTECRM, tuttavia termineranno solamente i diritti d'uso per il modulo di cui il Cliente non rispetta i termini di pagamento.
+Tutti gli importi dovuti dal Cliente sono pagabili in Euro, senza detrazioni relative a tasse, valute, compensazioni o spese di qualsiasi tipo. Il pagamento dovrà sempre essere effettuato dal cliente entro e non oltre 30 giorni dalla data della fattura. In caso di ritardi nei pagamenti, saranno aggiunti gli interessi in base al diritto olandese, calcolati su base mensile dal momento in cui scade il termine originale di pagamento; saranno inoltre aggiunti eventuali costi, commissioni e spese sostenute in relazione al debito contratto come previsto dalla legge olandese.
+Le informazioni possedute da VTECRM sono considerate come prova dei canoni dovuti, a meno che il Cliente non possa provare che tali informazioni siano inesatte.
+VTECRM ha il diritto di eseguire annualmente una verifica sulla conformità del Cliente alle presenti condizioni di licenza, in particolare per quanto riguarda il numero di persone che utilizzano il Software. La verifica deve essere effettuata da un terzo soggetto indipendente (ad esempio un commercialista) in fiducia. Il revisore potrà segnalare solo i dati rilevanti per la verifica di conformità. I costi di tale verifica sono a carico VTECRM, a meno che il rapporto riveli che il Cliente non abbia corrisposto il canone di licenza corretto.
+
+Articolo 6. 	Limitazione di responsabilità
+Nella misura massima consentita dalla legge, e se non esplicitamente indicato diversamente per iscritto, VTECRM declina espressamente tutte le condizioni, dichiarazioni o garanzie, esplicite o implicite, incluse, senza limitazioni, le garanzie implicite di commerciabilità, idoneità per scopi particolari e non-violazioni di diritti di terze parti riguardanti il Software. Il Software non è immune a guasti e come tale non è progettato per l'uso in ambienti a rischio che richiedono prestazioni esenti da errori.
+VTECRM sarà responsabile nei confronti del Cliente solo per danni diretti, derivanti da un'intenzionale comportamento malevolo nei confronti del cliente o di prestazioni materialmente negligenti di uno qualsiasi dei suoi obblighi nel quadro dell'accordo.
+VTECRM potrà in nessun modo essere ritenuta responsabile per eventuali danni indiretti, speciali, punitivi e/o incidentali, compresa la perdita di profitti, derivanti da o in connessione con l'accordo, anche se avvisati della possibilità di tali danni.
+Qualsiasi responsabilità di VTECRM è limitata al canone effettivamente pagato dal Cliente per l'anno in cui si è verificato l'evento.
+Nessuna responsabilità sussiste per i danni che non sono stati segnalati a VTECRM per iscritto entro due settimane dalla loro verificarsi, per danni derivanti da bug corretti in un aggiornamento non installato dal Cliente, o per danni in cui il Cliente ha omesso di adottare misure idonee a limitare tale danni.
+Il Cliente dovrà manlevare e garantire l'indennità per VTECRM, i suoi affiliati, i funzionari, gli agenti e i dipendenti da e contro qualsiasi reclamo, richiesta o causa di azione di sorta in relazione al Software, compresi, senza limitazione, quelle derivanti a causa di modifiche o miglioramenti del Software effettuati dal Cliente o altrimenti causati da, o derivanti da, o risultanti dall'esercizio o la pratica della licenza qui concessa da VTECRM.
+
+Articolo 7. 	Durata e risoluzione
+L'accordo di licenza viene stipulato dalla data in cui il Cliente acquista il Software da VTECRM e rimane effettivo per il successivo periodo di un anno, salvo risoluzione ai sensi delle disposizioni di questo contratto di licenza riportate nel seguito. Se viene scelta una licenza di tipo one-shot, il contratto di licenza rimane effettivo per un periodo di due anni, dopo di che viene automaticamente rinnovato annualmente, salvo risoluzione ai sensi delle disposizioni che seguono.
+Il Cliente può recedere dal presente contratto in qualsiasi momento con un preavviso scritto a VTECRM. Non è previsto alcun rimborso.
+VTECRM può recedere dal presente accordo con preavviso scritto di almeno tre mesi prima della fine del periodo di licenza vigore in quel momento.
+Ciascuna delle parti può recedere dal presente accordo, se l'altra parte non rispetta gli obblighi materiali ai sensi dell'accordo, ma solo dopo sia stato verificato che tale parte non abbia rimediato al problema, entro un ragionevole periodo di tempo e dopo aver ricevuto una comunicazione scritta di inadempienza il più dettagliata possibile.
+Ciascuna delle parti può rescindere immediatamente il contratto mediante comunicazione scritta all'altra parte, senza necessità di messa in mora o intervento dell'autorità giudiziaria, nei seguenti casi: se all'altra parte è stata concessa la sospensione dei pagamenti a titolo provvisorio o non; se una richiesta di fallimento è stata presentata con rispetto per l'altra parte; se l'altra parte dichiara il fallimento per se stessa; o se l'impresa a cui l'altra parte si appoggia viene sciolta o termina, ad eccezzione che non si tratti di una fusione o assorbimento da parte di un'altra società.
+Dopo la risoluzione, il Cliente non potrà più utilizzare il Software se non in conformità con i termini della AGPL.
+
+Articolo 8. 	Modifica di termini e prezzi
+VTECRM può modificare o integrare con aggiunte questi termini e condizioni, così come i prezzi, una volta all'anno. VTECRM è tenuta ad informare il Cliente per iscritto dei cambiamenti, almeno trenta giorni prima della loro entrata in vigore.
+Se il cliente non è disposto ad accettare un cambiamento o un'aggiunta, deve rescindere il contratto a partire dalla data in cui le modifiche avranno effetto.
+
+Articolo 9. 	Legge e foro di competenza
+A questo accordo si applica la legge olandese.
+Ad eccezione di quanto stabilito altrimenti da leggi vigenti, tutte le controversie derivanti in relazione al Software saranno giudicate dal tribunale di Amsterdam, Paesi Bassi.
+Nel caso in cui, qualsiasi porzione di questi termini e condizioni sia dichiarata invalida, ciò non pregiudicherà la validità di tutto il contratto. Le parti, in tal caso, si accorderanno su una o più disposizioni che andranno a sostituire approssimativamente l'intento originale della(e) disposizione(i) invalida(e), entro i limiti di legge.
+
+Articolo 10. 	Miscellanea
+Per qualsiasi clausola di questo accordo che richieda una dichiarazione "scritta" per essere giuridicamente valida, sarà fornita una dichiarazione via e-mail o fax previa verifica dell'autenticità del mittente che possa stabilire che l'integrità delle informazioni non siano state compromesse.
+La versione di qualsiasi comunicazione di informazioni registrate da VTECRM si considera essere autentica, a meno che non si fornisca prova del contrario.
+VTECRM può trasferire i propri diritti e obblighi, ai sensi del presente accordo, a terze parti come condizione di acquisizione del Software o attività commerciali connesse.

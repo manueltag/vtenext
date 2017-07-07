@@ -1,0 +1,141 @@
+body{
+	font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif;	/* Font to use */
+	font-size:0.7em;
+	margin:0px;
+	padding:0px;
+	height:100%;
+	width:100%;
+	text-align:left;
+}
+input{
+	font-size:10px;
+}
+#mainContainer{
+	width:65%;
+	text-align:left;
+	height:70%;		
+	float:left;
+	margin:0px;
+	padding:0px;
+}
+.dragableBox{	/* The RSS box */
+	background-color:#FFF;
+	margin:5px;
+	vertical-align:top;
+}
+/* A div inside the rss box - with a blue border */
+.dragableBoxInner{
+	border:1px solid #525d95;
+}
+.dragableBoxHeader{	/* Header inside RSS box */
+	background-color:#e9edfb;
+	height:20px;
+	font-weight:bold;
+	font-size:1em;
+	color: #525d95;
+}
+.dragableBoxHeader span{	/* Text inside header of RSS box */
+	line-heigth:20px;
+}
+.dragableBoxHeader img,.dragableBoxHeader span{	/* Text and reload image inside RSS box */
+	float:left;
+}
+.boxItemHeader{	/* Title of items inside dragable boxes */
+	font-family: Arial, sans-serif;
+	font-weight:bold;
+	margin:0px;
+	color:#000;
+	font-size:0.8em;
+	text-decoration:none;
+	overflow:hidden;
+}	
+.boxItemHeader:hover{	/* Title of items inside dragable boxes - mouseover*/
+	font-family: Arial, sans-serif;
+	font-weight:bold;
+	margin:0px;
+	color:#F00;
+	font-size:0.8em;
+	text-decoration:underline;
+}
+.dragableBoxHeader input{	/* text inputs that gets visible when you click on the "edit" link at the top of a rss box */
+	font-size:10px;	
+}
+
+.rssNumberOfItems{	/* Number of RSS items in header - the one inside parantheses */
+	color:#F00;
+}
+.dragableBoxContent{	/* DIV holding data inside dragable boxes */
+	padding:5px;
+	clear:both;
+	
+}
+#rectangleDiv{	/* Dotted rectangle indicating where objects will be dropped */
+	border:1px dotted #525d95;
+	margin:5px;
+}
+.closeButton{	/* Close button */
+	padding:2px;
+	border:1px solid #317082;
+	line-height:9px;
+	height:9px;
+	margin:2px;
+	color:#317082;
+	padding:2px;
+	padding-bottom:3px;
+}
+.closeButton_over{	/* Close button - mouse over */
+	padding:2px;
+	border:1px solid #317082;
+	line-height:9px;
+	padding:2px;
+	padding-bottom:3px;
+	margin:2px;	
+	background-color:#317082;
+	color:#FFF;
+}
+.dragableBoxStatusBar{	/* Status bar at the bottom of rss boxes */
+	border-top:3px double #525d95;
+	height:16px;
+	background-image:url("../../themes/images/footbg.gif");
+	padding:2px;
+}
+.dragableBoxEditLink{	/* Edit link on top of a box */
+	color:#317082;
+	text-decoration:none;
+	padding-top:1px;
+}
+.dragableBoxEditLink:hover{	/* Edit link - mouse over */
+	color:red;
+	text-decoration:underline;
+}
+form{	/* No borders in forms */
+	display:inline;
+}
+#addNewFeed{	/* The white box at the top right corner where you can add a new RSS feed */
+	float:left;
+	background-color:#FFF;
+	width:350;
+	border:1px solid #317082;
+	padding:5px;
+	overflow:hidden;
+	visibility:hidden;
+}
+img{
+	border:0px;
+	}
+		
+/* world clock */	
+.hrow {
+	font-weight:bold;
+	color: #525d95;
+}
+
+.hrow td{
+	width: 120px;
+}
+
+.backimg {
+	background:url("../images/1.gif");
+	height:80px;
+	width:100%;
+}		

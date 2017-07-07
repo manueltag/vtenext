@@ -1,0 +1,241 @@
+
+/* Import VTE colors */
+@import 'vars/colors';
+
+/* Import VTE mixins */
+@import 'vars/mixins';
+
+/* Set some variables */
+/*@navbar-height: 36px;
+@line-height-computed: 30px;
+*/
+
+/* bootstrap font */ // crmv@96742
+$icon-font-path: 'fonts/glyphicons-halflings/';
+
+/* Import Bootstrap engine */
+/* TODO: import only what's needed */
+@import 'bootstrap/_bootstrap.scss';
+
+// prevent the underline when hovering links
+a:hover {
+	text-decoration: none;
+}
+
+/* In VTE there are still a lot of tables, keep the default padding */
+td {
+	padding: 2px;
+}
+
+table.lvtBg > tbody > tr > td {
+	padding: 0px;
+}
+div#contentwrap_ModCommentsDetailViewBlockCommentWidget > table > tbody > tr > td {
+	padding: 0px;
+}
+div.ModCommAnswerBox > table > tbody > tr > td {
+	padding: 0px;
+}
+
+div.checkbox span.checkbox-material span.check {
+	border: 1px solid $vte-text-title;
+	width: 18px;
+    height: 18px;
+}
+
+// crmv@109116
+#alert-dialog-content, #confirm-dialog-content {
+	// enable newlines in alerts
+	white-space: pre-wrap;
+}
+// crmv@109116e
+
+/* Detail View */
+
+.btn-group.detail-view-topbar-group {
+	margin: 0px;
+	box-shadow: none;
+	box-sizing: border-box;
+}
+
+.btn-group.detail-view-topbar-group:active:not(.btn-link) {
+	box-shadow: none;
+}
+
+.btn-group.detail-view-topbar-group .btn {
+	padding: 5px 10px;
+}
+
+/* Tracking button */
+
+.messagesTurboliftEntry.btn {
+	width: 100%;
+	margin: 0px;
+    padding: 0px 15px;
+    text-transform: none;
+    border: 1px solid $vte-button-border;
+}
+
+/* Other buttons, Turbolift buttons */
+
+.turboliftEntry1.btn {
+	width: 100%;
+	text-transform: none;
+	margin: 5px 1px;
+	text-align: left;
+	border: 1px solid $vte-button-border;
+}
+
+.turboliftEntry1.btn, .turboliftEntry.turboliftEntryWithImage.btn, .turboliftEntry1.turboliftEntryWithImage.btn {
+	width: 100%;
+	text-transform: none;
+	text-align: left;
+	border: 1px solid $vte-button-border;
+	margin: 0px;
+	padding: 7px 15px;
+    margin-top: 5px;
+}
+
+.turboliftEntry1.btn {
+	padding: 10px 15px;
+}
+
+.turboliftEntry1:hover {
+	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* TODO: extends class btn */
+.turboliftTracking {
+	margin: 5px 1px;
+	border: 1px solid $vte-button-border;
+	border-radius: 2px;
+}
+
+/* Track */
+
+.btn-group.detail-view-topbar-group .btn.track-button {
+	padding: 8px 5px;
+}
+
+.tracking-container {
+	line-height: 50px;
+}
+
+#track_buttons {
+	display: inline-block;
+}
+
+.track-label {
+	display: inline-block;
+	/*vertical-align: middle;*/
+	/*padding: 8px 10px;*/
+}
+
+.track_button {
+	display: inline;
+	padding: 0;
+	padding-left: 5px;
+	
+	& i.vteicon {
+	    vertical-align: middle;
+    	padding: 0px;
+	}
+}
+
+.btn-group.detail-view-topbar-group .track-label {
+	@extend .track-label;
+}
+
+/* Others */
+
+.message-compose-border {
+	border: 1px solid #EAEAEA;
+}
+
+ul.pagination > li > a {
+	float: none;
+	margin-left: -5px;
+	border: none;
+}
+
+ul.pagination-sm > li > a {
+	font-size: 12px;
+}
+
+.crmbutton:not(.btn-link):not(.btn-flat):not(.delete):not(.save):not(.cancel),
+.crmButton:not(.btn-link):not(.btn-flat):not(.delete):not(.save):not(.cancel) {
+	border: 1px solid $vte-button-border;
+}
+
+.crmbutton.btn-arrow-right {
+	border-right: none !important;
+	z-index: 1;
+}
+
+.crmbutton.btn-arrow-left {
+	border-left: none !important;
+	z-index: 1;
+}
+
+.btn-arrow-right:before,
+.btn-arrow-left:before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    background: $white;
+    border: 1px solid $vte-button-border;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 2px;
+    z-index: -1;
+}
+
+.btn-arrow-right:before {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+}
+
+.btn-arrow-left:before {
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+}
+
+.btn-arrow-right:before {
+    right: -10px;
+}
+
+.btn-arrow-left:before {
+    left: -10px;
+}
+
+.btn-arrow-left:before,
+.btn-arrow-right:before {
+    background-color: $white;
+}
+
+.backButtonSave {
+	background-color: $vte-button-save;
+	background: linear-gradient(135deg,transparent 10px,$vte-button-save 0) top left,linear-gradient(45deg,transparent 10px,$vte-button-save 0) bottom left;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    border: 0px none !important;
+    padding-left: 25px !important;
+	color: rgba(255,255,255,0.84) !important;
+}
+
+.backButtonSave:active {
+	box-shadow: none !important;
+}
+
+.backButtonSave:hover {
+	box-shadow: none !important;
+    color: rgba(0,0,0,0.84) !important;
+}

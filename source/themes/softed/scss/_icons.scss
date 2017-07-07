@@ -1,0 +1,216 @@
+ /* crmv@98866 */
+ 
+/* Import icons from material and awesome */
+
+$fa-font-size-base: 20px;
+@import 'font-awesome/font-awesome';
+
+/* Use this class for the standard Material Icons */
+.vteicon {
+	@extend .material-icons;
+}
+
+/* Use this class for the Font-Awesome icons */
+.vteicon2 {
+	@extend .fa;
+	
+	font-size: $fa-font-size-base;
+}
+
+.vteicon, .vteicon2 {	
+	color: $vte-primary;
+	text-shadow: 1px 1px 2px $grey-400;
+	
+	// disable selection
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+	
+	&.spacer {
+		width: 24px;
+		
+		&.md-14, &.md-xsm { width: 14px; }
+		&.md-18, &.md-sm { width: 18px; }
+		&.md-36, &.md-lg { width: 36px; }
+		&.md-48, &.md-xlg { width: 48px; }
+	}
+	
+	&.md-link {
+		cursor: pointer;
+	}
+	
+	&.disabled {
+		color: $grey-400;
+		text-shadow: none;
+		cursor: default;
+	}
+	
+	&.nohover {
+		cursor: default;
+	}
+	
+	&.checkok {
+		color: $success;
+	}
+	
+	&.checkko {
+		color: $danger;
+	}
+	
+	// crmv@97692
+	&.valign-bottom {
+		vertical-align: bottom;
+	}
+	// crmv@97692e
+	
+	&.md-text {
+		color: $vte-text-title;
+		vertical-align: bottom;
+		
+		&.checkok {
+			color: $success;
+		}
+		
+		&.checkko {
+			color: $danger;
+		}
+		
+		&:hover:not(.disabled):not(.nohover) {
+			color: $vte-primary;
+		}
+	}
+	
+	&:hover:not(.disabled):not(.nohover) {
+		color: $vte-text-title;
+	}
+	
+}
+
+.vtesorticon {
+	display: initial;
+	vertical-align: sub;
+	height: 15px;
+	line-height:15px;
+}
+
+.stackedicon {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	
+	width:24px;
+	height:24px;
+	line-height:1;
+	
+	&.md-lg {
+		width:36px;
+		height:36px;
+	}
+	
+	&:hover:not(.disabled) {
+		.vteicon {
+			color: $vte-text-title;
+		}
+	}
+	
+	.vteicon {
+		position: relative;
+		line-height: inherit;
+		position: absolute;
+		left: 0;
+		
+		&:hover {
+			color: inherit;
+		}
+		
+		&.md-pedix {
+			top: initial;
+			bottom: 0;
+			font-size:16px;
+			text-shadow: 
+				-1px -1px 0 $white,
+				1px -1px 0 $white,
+				-1px 1px 0 $white,
+				1px 1px 0 $white;
+		}
+		
+		&.md-lg.md-pedix {
+			font-size:24px;
+		}
+		
+		&.md-bottom {
+			top: initial;
+			bottom: 0;
+		}
+		
+		&.md-right {
+			left: initial;
+			right: 0;
+		}
+		
+	}
+	
+	&.maximize {
+		width: 36px;
+		top: -5px;
+	}
+}
+
+.dvtCellInfoM, .dvtCellInfoMOn {
+	.vteicon {
+		color: $red-600;
+		
+		&:hover:not(.disabled) {
+			color: $red-800;
+		}
+	}
+}
+
+$material-icons-collection: (
+	accounts: "business", assets: "vertical_align_bottom", 
+	calendar: "event", contacts: "person",
+	ddt: "description", invoice: "description", 
+	leads: "perm_identity", helpdesk: "warning",
+	timecards: "business_center", services: "build", 
+	processes: "call_split", pricebooks: "import_contacts", 
+	products: "widgets", projectmilestone: "event_busy",
+	vendors: "local_shipping", newsletters: "contact_mail",
+	targets: "group_add", potentials: "euro_symbol", 
+	projecttask: "update", projectplan: "schedule", 
+	newsletter: "contact_mail", home: "home", "messages": "email",
+);
+
+$awesome-icons-collection: (
+	campaigns: "fa-line-chart",
+	charts: "fa-line-chart",
+	quotes: "fa-calculator", 
+	myfiles: "fa-files-o",
+);
+
+i.icon-module[data-first-letter]:after {
+	@include defaultLetterIcon;
+}
+
+@each $name, $icon in $material-icons-collection {
+    i.icon-module[data-first-letter].icon-#{$name}:after {
+        @if $icon != "" {
+        	@include materialIconBase;
+        	content: "#{$icon}";
+    	} @else {
+    		@include defaultLetterIcon;
+    	}
+    }
+}
+
+@each $name, $class in $awesome-icons-collection {
+    i.icon-module[data-first-letter].icon-#{$name} {
+		@if $class != "" {
+			@include awesomeIconBase;
+        	@extend .#{$class};
+    	} @else {
+    		@include defaultLetterIcon;
+    	}
+    }
+}

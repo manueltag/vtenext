@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+  <table name="vtiger_datashare_usr2usr">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="shareid" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="share_userid" type="C" size="255"/>
+    <field name="to_userid" type="I" size="19"/>
+    <field name="permission" type="I" size="19"/>
+    <index name="datashare_usr2usr_userid_idx">
+      <col>share_userid</col>
+    </index>
+    <index name="data_usr2usr_to_usrid_idx">
+      <col>to_userid</col>
+    </index>
+  </table>
+  <table name="crmv_budget">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="id" type="I" size="11"/>
+    <field name="year" type="I" size="4"/>
+    <field name="budget" type="N" size="30"/>
+  </table>
+  <table name="crmv_potential_line_rel">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="id" type="I" size="19"/>
+    <field name="lineid" type="I" size="19"/>
+    <field name="linename" type="C" size="100"/>
+    <field name="sequence_no" type="I" size="4"/>
+    <field name="listprice" type="N" size="25.3"/>
+    <index name="potline_id_idx">
+      <col>id</col>
+    </index>
+    <index name="inventoryproductrel_pid_idx">
+      <col>lineid</col>
+    </index>
+  </table>
+  <table name="erpbaseaccount">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="account_name" type="C" size="255"/>
+    <field name="website" type="C" size="255"/>
+    <field name="ticker_symbol" type="C" size="255"/>
+    <field name="member_of" type="C" size="255"/>
+    <field name="employees" type="C" size="255"/>
+    <field name="ownership" type="C" size="255"/>
+    <field name="industry" type="C" size="255"/>
+    <field name="type" type="C" size="255"/>
+    <field name="email_opt_out" type="C" size="255"/>
+    <field name="assigned_to_user" type="C" size="255"/>
+    <field name="modified_time" type="C" size="255"/>
+    <field name="import_file_name" type="C" size="255"/>
+    <field name="secondary_assigned_user" type="C" size="255"/>
+    <field name="phone" type="C" size="255"/>
+    <field name="fax" type="C" size="255"/>
+    <field name="other_phone" type="C" size="255"/>
+    <field name="email" type="C" size="255"/>
+    <field name="other_email" type="C" size="255"/>
+    <field name="rating" type="C" size="255"/>
+    <field name="sic_code" type="C" size="255"/>
+    <field name="annual_revenue" type="C" size="255"/>
+    <field name="notify_owner" type="C" size="255"/>
+    <field name="created_time" type="C" size="255"/>
+    <field name="import_date" type="C" size="255"/>
+    <field name="external_code" type="C" size="255"/>
+    <field name="secondary_owner_permission" type="C" size="255"/>
+    <field name="billing_address" type="C" size="255"/>
+    <field name="billing_po_box" type="C" size="255"/>
+    <field name="billing_city" type="C" size="255"/>
+    <field name="billing_state" type="C" size="255"/>
+    <field name="billing_postal_code" type="C" size="255"/>
+    <field name="billing_country" type="C" size="255"/>
+    <field name="shipping_address" type="C" size="255"/>
+    <field name="shipping_po_box" type="C" size="255"/>
+    <field name="shipping_city" type="C" size="255"/>
+    <field name="shipping_postal_code" type="C" size="255"/>
+    <field name="shipping_state" type="C" size="255"/>
+    <field name="shipping_country" type="C" size="255"/>
+    <field name="description" type="C" size="255"/>
+    <field name="erp_external_code" type="C" size="255"/>
+  </table>
+  <table name="tbl_s_advancedrule">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="advrule_id" type="I" size="11">
+    </field>
+    <field name="module_name" type="C" size="100"/>
+    <field name="title" type="C" size="200">
+      <NOTNULL/>
+    </field>
+    <field name="description" type="C" size="400"/>
+    <index name="tbl_s_advancedrule_idx">
+      <UNIQUE/>
+      <col>advrule_id</col>
+    </index>
+  </table>
+  <table name="tbl_s_advancedrule_rel">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="advrule_id" type="I" size="11"/>
+    <field name="entity_type" type="C" size="100"/>
+    <field name="id" type="C" size="100"/>
+    <field name="permission" type="L" />
+    <index name="tbl_s_advancedrulerel_idx">
+      <col>advrule_id</col>
+    </index>
+  </table>  
+  <table name="tbl_s_advrule_relmod">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="advrule_id" type="I" size="11">
+      <KEY/>
+    </field>
+    <field name="entity_type" type="C" size="10">
+      <KEY/>
+    </field>
+    <field name="id" type="C" size="10">
+      <KEY/>
+    </field>
+    <field name="rel_tabid" type="I" size="10">
+      <KEY/>
+    </field>
+    <field name="rel_permission" type="C" size="100">
+      <KEY/>
+    </field>
+    <index name="fk_1_tbl_s_advr_relmodules">
+      <col>rel_tabid</col>
+    </index>
+  </table>
+  <table name="tbl_s_advancedrulefilters">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="advrule_id" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="columnindex" type="I" size="11">
+      <KEY/>
+    </field>
+    <field name="columnname" type="C" size="250"/>
+    <field name="comparator" type="C" size="10"/>
+    <field name="value" type="C" size="200"/>
+    <index name="advfilter_cvid_idx">
+      <col>advrule_id</col>
+    </index>
+  </table>
+  <table name="tbl_s_advrule_relmodlist">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="datashare_relatedmodule_id" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="tabid" type="I" size="19"/>
+    <field name="relatedto_tabid" type="I" size="19"/>
+    <index name="advrule_relmod_tabid_idx">
+      <col>tabid</col>
+    </index>
+    <index name="datash_relmod_relto_tabid_idx">
+      <col>relatedto_tabid</col>
+    </index>
+  </table>
+  <table name="tbl_s_cvorderby">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="cvid" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="columnindex" type="I" size="11">
+      <KEY/>
+    </field>
+    <field name="columnname" type="C" size="255"/>
+    <field name="ordertype" type="C" size="4">
+      <DEFAULT value="ASC"/>
+    </field>
+    <index name="tbl_s_cvorderby_columnidx_idx">
+      <col>columnindex</col>
+    </index>
+    <index name="tbl_s_cvorderby_cvid_idx">
+      <col>cvid</col>
+    </index>
+  </table>
+  <table name="tbl_s_faxservertype">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="server_type" type="C" size="100"/>
+    <field name="presence" type="I" size="1">
+      <DEFAULT value="0"/>
+    </field>
+  </table>
+  <table name="tbl_s_ldap_config">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="authtype" type="C" size="255"/>
+    <field name="ldap_host" type="C" size="255"/>
+    <field name="ldap_port" type="I" size="5"/>
+    <field name="ldap_basedn" type="C" size="255"/>
+    <field name="ldap_username" type="C" size="255"/>
+    <field name="ldap_pass" type="C" size="255"/>
+    <field name="ldap_objclass" type="C" size="255"/>
+    <field name="ldap_account" type="C" size="255"/>
+    <field name="ldap_domain" type="C" size="255"/>
+  </table>
+  <table name="tbl_s_lvcolors">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="tabid" type="I" size="9"/>
+    <field name="fieldname" type="C" size="128"/>
+    <field name="fieldvalue" type="C" size="255"/>
+    <field name="color" type="C" size="7">
+      <DEFAULT value="#000000"/>
+    </field>
+  </table>
+  <table name="tbl_s_mailconnector">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="id" type="I" size="11">
+      <KEY/>
+    </field>
+    <field name="mailid" type="C" size="255"/>
+    <field name="state" type="C" size="2"/>
+    <field name="timestamp" type="C" size="14"/>
+  </table>
+  <table name="tbl_s_picklist_language">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="code_system" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="code" type="C" size="20">
+      <KEY/>
+    </field>
+    <field name="field" type="C" size="50">
+      <KEY/>
+    </field>
+    <field name="language" type="C" size="5">
+      <KEY/>
+    </field>
+    <field name="value" type="X"/>
+    <field name="sortorderid" type="I" size="19"/>
+    <index name="picklist_code_field_lang_idx">
+      <UNIQUE/>
+      <col>code</col>
+      <col>field</col>
+      <col>language</col>
+    </index>
+    <index name="picklist_codes_lang_idx">
+      <col>code_system</col>
+      <col>code</col>
+      <col>field</col>
+    </index>
+    <index name="picklist_field_idx">
+      <col>field</col>
+    </index>
+  </table>
+  <table name="tbl_s_smsservertype">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="server_type" type="C" size="100"/>
+    <field name="presence" type="I" size="1">
+      <DEFAULT value="0"/>
+    </field>
+  </table>
+  <table name="tbl_v_account">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="accountid" type="I" size="19">
+      <KEY/>
+      <DEFAULT value="0"/>
+    </field>
+  </table>
+  <table name="tbl_v_contactdetails">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="contactid" type="I" size="19">
+      <KEY/>
+      <DEFAULT value="0"/>
+    </field>
+    <field name="account_name" type="C" size="255"/>
+  </table>
+  <table name="tbl_v_leaddetails">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="leadid" type="I" size="19">
+      <KEY/>
+    </field>
+  </table>
+  <table name="tbl_v_leadimportemails">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="mailid" type="C" size="255">
+      <NOTNULL/>
+    </field>
+    <field name="status" type="C" size="8">
+      <NOTNULL/>
+    </field>
+    <field name="sender" type="C" size="255">
+      <NOTNULL/>
+    </field>
+    <field name="timestamp" type="C" size="32">
+      <NOTNULL/>
+    </field>
+    <field name="leadid" type="I" size="19">
+      <NOTNULL/>
+    </field>
+    <field name="emailid" type="I" size="19">
+      <NOTNULL/>
+    </field>
+    <index name="tbl_v_leadimp_mailid_idx">
+      <col>mailid</col>
+    </index>
+  </table>
+  <table name="tbl_v_leadimportemails_mapping">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="string" type="C" size="255">
+      <KEY/>
+    </field>
+    <field name="fieldname" type="C" size="255">
+      <KEY/>
+    </field>
+  </table>
+  <table name="vtiger_projects_hours">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="projectid" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="worker_userid" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="work_date" type="D">
+      <NOTNULL/>
+    </field>
+    <field name="hour" type="N" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="status" type="I" size="2">
+      <NOTNULL/>
+    </field>
+    <field name="note" type="X"/>
+    <index name="projectid_hours">
+      <col>projectid</col>
+      <col>worker_userid</col>
+      <col>work_date</col>
+      <col>hour</col>
+      <col>status</col>
+    </index>
+  </table>
+  <table name="vtiger_failtype">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="failtypeid" type="I" size="11"/>
+    <field name="failtype" type="C" size="255"/>
+    <field name="presence" type="I" size="11"/>
+    <field name="picklist_valueid" type="I" size="11"/>
+  </table>   	 
+  <table name="vtiger_insufficient_stock">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="insufficient_stockid" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="insufficient_stock" type="C" size="200">
+      <NOTNULL/>
+    </field>
+    <field name="presence" type="I" size="1">
+      <NOTNULL/>
+      <DEFAULT value="1"/>
+    </field>
+    <field name="picklist_valueid" type="I" size="19">
+      <NOTNULL/>
+      <DEFAULT value="0"/>
+    </field>
+  </table>  
+  <table name="crmv_inventorytoacc">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="accountid" type="R" size="19">
+      <KEY/>
+    </field>
+    <field name="sorderid" type="R" size="19">
+      <KEY/>
+    </field>
+    <field name="id" type="R" size="19">
+      <KEY/>
+    </field>
+    <field name="type" type="C" size="255"/>
+  </table>
+  <table name="vtiger_failtype_permisions">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="failtype" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="worker_userid" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <index name="failtype">
+      <col>failtype</col>
+      <col>worker_userid</col>
+    </index>
+  </table> 
+  <table name="vtiger_projects_failhour">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="worker_userid" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="work_date" type="D">
+      <NOTNULL/>
+    </field>
+    <field name="type_fail" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="work_hour" type="N" size="10">
+      <NOTNULL/>
+    </field>
+    <field name="status" type="I" size="2">
+      <NOTNULL/>
+    </field>
+    <index name="worker_userid_fail">
+      <col>worker_userid</col>
+      <col>work_date</col>
+      <col>type_fail</col>
+      <col>work_hour</col>
+      <col>status</col>
+    </index>
+  </table> 
+  <table name="vtiger_projects_tickets">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="project_id" type="I" size="11">
+      <NOTNULL/>
+      <DEFAULT value="0"/>
+    </field>
+    <field name="ticket_id" type="I" size="11">
+      <NOTNULL/>
+      <DEFAULT value="0"/>
+    </field>
+  </table>    
+  <table name="vtiger_projectworkers">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="id" type="I" size="11">
+      <KEY/>
+    </field>
+    <field name="projectid" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="worker_userid" type="I" size="11">
+      <NOTNULL/>
+    </field>
+    <field name="hour" type="N" size="10">
+      <NOTNULL/>
+    </field>
+    <index name="id">
+      <col>id</col>
+    </index>
+    <index name="projectid">
+      <col>projectid</col>
+    </index>
+    <index name="worker_userid">
+      <col>worker_userid</col>
+    </index>
+  </table>
+  <table name="vtiger_product_lines">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="product_linesid" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="product_lines" type="C" size="200">
+      <NOTNULL/>
+    </field>
+    <field name="picklist_valueid" type="I" size="19">
+      <NOTNULL/>
+      <DEFAULT value="0"/>
+    </field>
+    <field name="presence" type="I" size="1">
+      <NOTNULL/>
+      <DEFAULT value="1"/>
+    </field>
+    <field name="budget" type="N" size="30.3"/>
+  </table>
+<table name="vtiger_faxdetails">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="faxid" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="from_number" type="C" size="50"/>
+    <field name="to_number" type="X"/>
+    <field name="assigned_user_number" type="C" size="50"/>
+    <field name="idlists" type="C" size="50">
+      <NOTNULL/>
+    </field>
+    <field name="fax_flag" type="C" size="50">
+      <NOTNULL/>
+    </field>
+  </table>
+  <table name="vtiger_smsdetails">
+  <opt platform="mysql">ENGINE=InnoDB</opt>
+    <field name="smsid" type="I" size="19">
+      <KEY/>
+    </field>
+    <field name="from_number" type="C" size="50"/>
+    <field name="to_number" type="X"/>
+    <field name="assigned_user_number" type="C" size="50"/>
+    <field name="idlists" type="C" size="50">
+      <NOTNULL/>
+    </field>
+    <field name="sms_flag" type="C" size="50">
+      <NOTNULL/>
+    </field>
+  </table>
+</schema>  

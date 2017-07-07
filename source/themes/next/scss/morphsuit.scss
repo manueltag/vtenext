@@ -1,0 +1,53 @@
+/*********************************************************************************
+** The contents of this file are subject to the vtiger CRM Public License Version 1.0
+* ("License"); You may not use this file except in compliance with the License
+* The Original Code is:  vtiger CRM Open Source
+* The Initial Developer of the Original Code is vtiger.
+* Portions created by vtiger are Copyright (C) vtiger.
+* All Rights Reserved.
+********************************************************************************/
+
+@import 'fonts';
+@import 'vars/colors';
+@import 'material/shadows';
+
+body {
+	background-color: $login-background;
+}
+
+#main-container {
+	padding-top: 80px;
+}
+
+#header {
+	height: 80px;
+}
+
+#header-inner-cont {
+	padding: 15px;
+}
+
+#content-inner-cont {
+	border: 1px solid #CCCCCC;
+	background-color: $white;
+	box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	border-radius: 2px;
+}
+
+.content-padding {
+	padding: 15px;
+}
+
+#config-title {
+	text-align: center;
+	font-weight: bold;
+}
+
+#nav-bar-inner {
+	margin: 0px auto;
+	padding: 20px 0px;
+}
+
+#footer-inner a {
+	color: $white;
+}

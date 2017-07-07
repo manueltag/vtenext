@@ -1,0 +1,58 @@
+
+/* Import VTE colors */
+@import 'vars/colors';
+
+/* Import VTE mixins */
+@import 'vars/mixins';
+
+/* Override some other variables */
+$material-font-path: 'fonts/material-design-icons';
+$material-google-font-path: 'fonts/material-icons';
+
+/* Include the material theme */
+@import 'material/_vtematerial';
+
+/* Some additions */
+[class^="mdi-"], [class*="mdi-"] {
+	
+	&.mdi-sm:before, &.mdi-sm:after {
+		font-size: 0.75em;
+		vertical-align: -10%;
+	}
+}
+
+
+// material icons from google. different from the ones provided by the material package
+/*@font-face {
+	font-family: 'Material Icons';
+	src: url('#{$material-google-font-path}/MaterialIcons-Regular.eot');
+	src: local('Material Icons'), local('MaterialIcons-Regular'),
+	url('#{$material-google-font-path}/MaterialIcons-Regular.eot?#iefix') format('embedded-opentype'),
+	url('#{$material-google-font-path}/MaterialIcons-Regular.woff') format('woff'),
+	url('#{$material-google-font-path}/MaterialIcons-Regular.woff2') format('woff2'),
+	url('#{$material-google-font-path}/MaterialIcons-Regular.ttf') format('truetype');
+	font-style: normal;
+	font-weight: 400;
+}
+
+.material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+	
+	&.md-18 { font-size: 18px; }
+	&.md-24 { font-size: 24px; }
+	&.md-36 { font-size: 36px; }
+	&.md-48 { font-size: 48px; }
+}
+*/

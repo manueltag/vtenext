@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>VTECRM - Portale</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Comments timeline CSS -->
+    <link href="css/timeline.css" rel="stylesheet">
+    
+    <link href="css/material_design/material.min.css" rel="stylesheet">
+    <link href="css/material_design/roboto.min.css" rel="stylesheet">
+    <link href="css/material_design/material-fullpalette.min.css" rel="stylesheet">
+    <link href="css/material_design/ripples.min.css" rel="stylesheet">
+    <link href="css/material_design/ripples.min.css" rel="stylesheet"> 
+    <link href="css/material_design/material-icon.css" rel="stylesheet">
+    
+    
+<?php
+// Prototype library clashes with AutoComplete library in use so avoid on those pages
+if($_REQUEST['fun'] != 'newticket') {
+	echo '<script language="javascript" type="text/javascript" src="js/prototype.js"></script>';
+}
+?>
+
+<script language="javascript" type="text/javascript" src="js/general.js"></script>
+<script>
+	
+function fnMySettings(){
+		params = "last_login=<?php echo $_SESSION['last_login']; ?>&support_start_date=<?php echo $_SESSION['support_start_date']; ?>&support_end_date=<?php echo $_SESSION['support_end_date']; ?>";
+		window.open("MySettings.php?"+params,"MySettings","menubar=no,location=no,resizable=no,scrollbars=no,status=no,width=400,height=350,left=550,top=200");
+}
+</script>
+<script type="text/javascript">
+function showSearchFormNow(elementid) {
+	fnDown(elementid);
+	//document.getElementById("tabSrch_progress").style.display = '';
+	//document.getElementById("tabSrch_progress").style.margin = '-25px -75px 0px 0px';
+	if($(elementid).loaded) {
+		return;
+	} else {
+		// Squeeze the search div wrapper
+		$(elementid).style.width = '100px';
+	}
+	
+	var url = 'module=HelpDesk&action=SearchForm&ajax=true';
+	
+	new Ajax.Request(
+		'index.php', {queue: {position: 'end', scope: 'command'},
+		method: 'post',
+		postBody:url,
+		onComplete: function(response){
+					
+			// Set the width of search div wrapper
+			$(elementid).style.width = '100%';
+			$('_search_formelements_').innerHTML = response.responseText;
+			$(elementid).loaded = true;
+			//$(elementid+'_progress').hide();
+		}
+	});
+}
+</script>
+</head>
+<body>
+<!-- crmv@57342e-->
+    <!-- Navigation -->
+   <!-- crmv@57342 <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><img src="images/open-menu.png"></a>-->
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+           <!-- <a id="menu-close" href="#" class="btn-light btn-lg pull-right toggle"><img src="images/open-menu.png"></a> -->
+            <a id="menu-close" href="#" class="pull-right toggle">
+			     <i class="material-icons" style="font-size:40px;">menu</i>
+            </a>
+
+            <!-- crmv@57342 -->
+            <li><a href="http://www.vtecrm.com/" target="_blank"><img src="images/VTE_login.png" class="logo"/></a></li>
+            <li class="sidebar-brand">
+            <?php echo "<a href=index.php?module=Contacts&action=index&id=". $customerid ."&profile=yes>".getTranslatedString('LBL_MODIFY_PROFILE')."</a>"?><hr class="hr-vte">
+            <a href="index.php?module=HelpDesk&action=index&fun=newticket"><?php echo getTranslatedString('LBL_NEW_TICKET'); ?></a><hr class="hr-vte">
+            	<?php
+					$showmodule = array();
+					// Look if we have the information already
+					if(isset($_SESSION['__permitted_modules'])) {
+					$showmodule = $_SESSION['__permitted_modules'];
+					} else {
+						// Get the information from server
+						$params = array();
+						$showmodule = $client->call('get_modules',$params,$Server_path,$Server_path);
+						// Store for further use.
+						$_SESSION['__permitted_modules'] = $showmodule;
+					}
+
+					for($i=0;$i<count($showmodule);$i++ ) {
+						/*crmv@57342 crmv@5946*/
+						if(file_exists($showmodule[$i]) && $showmodule[$i] != 'Potentials')
+						/*crmv@57342e crmv@5946e*/
+							// Show module tab, only if the module directory exists
+							
+							if($showmodule[$i] == 'Invoice'){
+								$icon = "description";
+							}
+							echo "<a class='menu' href='index.php?module=".$showmodule[$i]."&action=index&onlymine=true'><i style='font-size:40px;float:left;' class='material-icons'>".$icon."</i>".getTranslatedString($showmodule[$i])."</a><hr class='hr-vte'>";
+					}
+				?>
+       			<a href="index.php?logout=true"><?php echo getTranslatedString('LBL_LOG_OUT');?></a><hr class="hr-vte">
+            </li>
+        </ul>
+    </nav>
+   
+     <div id="page-wrapper">
+     	<div class="container-fluid">		
+
+		    <!-- jQuery Version 1.11.0 -->
+		    <script src="js/jquery-1.11.0.js"></script>
+		   			   	
+		    <!--  overflow -->
+		    <link href="js/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+			<script src="js/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+			<script language="javascript" type="text/javascript" src="js/slimscroll/jquery.slimscroll.min.js"></script>
+			<link href="js/mCustomScrollbar/VTE.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+		
+		    <!-- Custom Menu JavaScript -->
+		    <script>
+		    //crmv@57342
+		    $("#menu-close").click(function(e) {
+		        e.preventDefault();
+		        $("#sidebar-wrapper").toggleClass("active");
+		        $("#page-wrapper").toggleClass("active");
+		        
+		        
+		        if($( "#sidebar-wrapper" ).hasClass( "active" )){
+		        	$(".material-icons").html('menu');
+		        }else{
+		        	$(".material-icons").html('highlight_off');
+		        }
+		    });
+		
+		    </script>
+		    <script>
+			  (function() {
+			
+			    "use strict";
+			
+			    var toggles = document.querySelectorAll(".c-hamburger");
+			
+			    for (var i = toggles.length - 1; i >= 0; i--) {
+			      var toggle = toggles[i];
+			      toggleHandler(toggle);
+			    };
+			
+			    function toggleHandler(toggle) {
+			      toggle.addEventListener( "click", function(e) {
+			        e.preventDefault();
+			        (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+			      });
+			    }
+			
+			  })();
+			</script>
+		 	<!--  overflow -->
+			<script>
+				jQuery(document).ready(function (){
+					//window.jQuery = $.noConflict();
+					jQuery('.sidebar-nav').slimScroll({
+						width: '250px',
+						height: '100%',
+					})
+				});
+			</script>
+</body>
+</html>

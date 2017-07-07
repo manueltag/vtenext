@@ -1,0 +1,3076 @@
+/*********************************************************************************
+ * The contents of this file are subject to the vtiger CRM Public License Version 1.0
+ * ("License"); You may not use this file except in compliance with the License
+ * The Original Code is:  vtiger CRM Open Source
+ * The Initial Developer of the Original Code is vtiger.
+ * Portions created by vtiger are Copyright (C) vtiger.
+ * Portions created by CRMVILLAGE.BIZ are Copyright (C) CRMVILLAGE.BIZ.
+ * All Rights Reserved.
+ * Softed theme is darivated from bluelagoon theme
+ * Softed theme by Lukas N at http://vtiger-crm.cz, ln@studio24.cz
+ * tested on version 5.0.4
+ ********************************************************************************/
+/* SOFTED  - COLOR THEME */
+
+/* crmv@82419 */
+
+/* Some variables */
+/* TODO: move them in a separate file */
+$vte_font_size: 13px;
+
+/* Import colors */
+@import 'vars/colors';
+
+/* Import VTE mixins */
+@import 'vars/mixins';
+
+@import 'vte_material';
+
+/* Import fonts */
+@font-face { 
+	font-family: 'VTEFont';
+	src: url('fonts/roboto/regular/Roboto-Regular-webfont.eot');
+	src: url('fonts/roboto/regular/Roboto-Regular-webfont.eot?iefix') format('eot'),
+		url('fonts/roboto/regular/Roboto-Regular-webfont.woff') format('woff'),
+		url('fonts/roboto/regular/Roboto-Regular-webfont.ttf') format('truetype'),
+		url('fonts/roboto/regular/Roboto-Regular-webfont.svg#webfont') format('svg');
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('fonts/notosans/regular/NotoSans-Regular-webfont.eot');
+    src: url('fonts/notosans/regular/NotoSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/notosans/regular/NotoSans-Regular-webfont.woff') format('woff'),
+		url('fonts/notosans/regular/NotoSans-Regular-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'OpenSansRegular';
+    src: url('fonts/opensans/regular/opensans-regular-webfont.eot');
+    src: url('fonts/opensans/regular/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+		url('fonts/opensans/regular/opensans-regular-webfont.woff') format('woff'),
+		url('fonts/opensans/regular/opensans-regular-webfont.ttf') format('truetype'),
+		url('fonts/opensans/regular/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+}
+
+/* Override some material styles */
+/* And override other styles */
+.navbar-nav > li {
+	padding-bottom: 0px;
+	padding-top: 0px;
+	
+	&.shrink {
+		a {
+			padding-left: 2px;
+			padding-right: 2px;
+			padding-top: 2px !important;
+			
+			.userAvatar {
+				position: relative;
+				top: -1px;
+			}
+		}
+	}
+	
+	&.active {
+		color: $vte-submenu;
+	}
+}
+.navbar-nav > li > a, .navbar-brand {
+	padding-top: 6px !important; 
+	padding-bottom: 0 !important;
+	height: 34px;
+}
+.navbar {
+	min-height:34px; // crmv@97692
+}
+
+.pagination {
+	label {
+		margin-bottom: 0px;
+	}
+	.pagenumber {
+		width: 40px;
+		height: 20px;
+		display: inline-block;
+	}
+}
+
+div.radio-horiz {
+	display: inline-block;
+	
+	label {
+		padding-left: 30px;
+	}
+}
+
+/* crmv@16131m crmv@23344 */
+
+body {
+	background-color: $white; /* crmv@42707 */
+	font-family: 'VTEFont', 'Noto Sans', 'OpenSansRegular', Verdana, Geneva, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+input {
+	//outline: none;
+	border: 0px;
+}
+
+textarea {
+	width:95%;
+	height:70px;
+	//border:1px solid $grey-300;
+	outline: none;
+	font-family: 'VTEFont', Verdana, Geneva, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+a {
+	text-decoration:none;
+	color:$vte-text-title;
+}
+
+.badge {
+	// change the default appearence of badges
+	&.vte-top-badge {
+		position: absolute;
+		top: -4px;
+		right: -10px;
+		z-index: 2;
+		font-size: 10px;
+		cursor: pointer;
+		background-color: $vte-button-delete;
+	}
+}
+
+div.fixedLay1 { 
+	position:fixed;
+}
+
+
+/* morphsuit activation */
+.morphsuitactivationbody {
+	background-color: $vte-box-light-bg;
+}
+.morphsuittable {
+	background-color:$white;
+	border-bottom:1px solid $grey-500;
+	border-left:1px solid $grey-500;
+	border-right:1px solid $grey-500;
+	line-height:23px;
+}
+.morphsuittab {
+	background:url(images/headermorphsuit.png);
+	height:52px;
+	cursor:pointer;
+}
+.morphsuitlink {
+	color:$white;
+}
+#logoMorphsuit {
+display:none;
+}
+/* end morphsuit activation */
+
+#lv_user_id, #viewname {
+width: 100px;
+}
+
+#winMax {
+text-align:center;
+z-index:0;
+text-decoration:none;
+width:100%;
+background-image:url(images/bg_minimizer.png);
+}
+
+.margintop{
+	margin-top:3px;
+}
+
+.small {
+	font-size: $vte_font_size;
+	color: $vte-text;
+}
+
+.big {
+	font-size: $vte_font_size;
+	line-height: 18px;
+	color: $vte-text;
+	font-weight:bold;
+}
+
+.componentName {
+	font-size: 18px;
+	line-height: 18px;
+	color: $vte-text-title;
+	padding:10px;
+}
+
+.genHeaderBig{
+	font-size: 16px;
+	line-height: 19px;
+	color: $vte-text;
+	font-weight:bold;
+}
+
+.genHeaderSmall{
+	font-size: 14px;
+	line-height: 16px;
+	color: $vte-text;
+	font-weight:bold;
+}
+
+.moduleName {
+	font-size: 14px;
+	color:$vte-text-title;
+}
+
+.hdrNameBg {
+	background-color: $white;
+}
+
+/* header style - start */
+
+div#vte_menu {
+	z-index:20;
+	width:100%;
+	top: 0px;
+	left: 0px;
+}
+
+.hdrBg {
+	background-color: $vte-primary;
+}
+
+.hdrBg table {
+	height: 34px;
+}
+
+.tabSelected {
+	background-color: $vte-menusep;
+}
+
+.tabUnSelected {}
+
+.tabUnSelected:hover {
+	background-color: $vte-menusep;
+}
+
+.tabSelected, .tabUnSelected {
+	padding: 7px 10px;
+	border-left: 1px solid $vte-menusep;
+}
+
+.tabSelected a, .tabUnSelected a {
+	color:white;
+	font-size: $vte_font_size;
+}
+
+.tabSelected a:hover, .tabUnSelected a:hover {
+	text-decoration: none;
+}
+
+.tabMenuRight {
+	border-left: 1px solid $vte-menusep;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.tabMenuOptions {}
+
+.menuSeparation {
+	border-bottom: 1px solid $grey-300;
+}
+
+.level2Bg {
+	color: $vte-text-title;
+	font-size: 11px;
+	background-color: $vte-submenu;
+}
+
+.level2Bg a{
+	color: $vte-text-title;
+}
+
+.level2SelTab{
+	font-weight:bold;
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.level2UnSelTab{
+	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+.level3Bg {
+	font-size: 11px;
+	background-color: $white;
+	border-bottom: 1px solid $grey-300;
+}
+
+.level4Bg {
+	font-size: 11px;
+	background-color: $white;
+}
+
+/* header style - end */
+
+.userAvatar {
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+}
+
+.sep1 {
+	background: $white;
+	padding-left: 1px;
+}
+
+.showPanelBg {}
+
+.hdrLink {
+	font-size: 14px;
+	text-decoration:none;
+	color:$vte-text-title;
+}
+
+#showPanelTopLeft {
+visibility:hidden;
+}
+#showPanelTopRight {
+visibility:hidden;
+}
+#border2pxpopup {
+border:2px solid $grey-300;
+}
+
+.moduleSearch, .basicSearch {
+	
+	position: relative;
+	
+	.cancelIcon {
+		cursor: pointer;
+		position: absolute;
+		right: 20px;
+		top: 1px;
+		
+		img {
+			vertical-align: middle;
+		}
+		
+		.vteicon {
+			vertical-align: middle;
+			color: $grey-400;
+			text-shadow: none;
+			
+			&:hover {
+				color: $grey-500;
+			}
+		}
+	}
+	
+	.searchIcon {
+		cursor: pointer;
+		position: absolute;
+		right: 0px;
+		top: 2px;
+		
+		img {
+			vertical-align: middle;
+		}
+	}
+	
+	&.advIconSearch {
+		.advSearchIcon {
+			cursor: pointer;
+			position: absolute;
+			top: 2px;
+			right: 0px;
+		}
+		.searchIcon {
+			right: 20px;
+		}
+		.cancelIcon {
+			right: 40px;
+		}
+	}
+}
+
+.basicSearch {
+	// stupid fix for basic search
+	margin-bottom: 0px;
+}
+
+.globalSearch {
+	
+	float:right;
+	padding-right:5px;
+	position: relative;
+	
+	.searchIcon {
+		cursor: pointer;
+		position: absolute;
+		right: 0px;
+		top: 2px;
+		
+		img {
+			vertical-align: middle;
+		}
+	}	
+}
+
+.searchBox {
+	/*border: 0px;
+	 * font-size: 11px;
+	 * padding-left:2px;
+	 * width:180px;
+	 * background-color:$white;
+	 */
+	width:180px;
+	height:25px;
+}
+
+/* List View Table classes starts  +++++++++++++++++ */
+
+.lvt {
+	background-color: $vte-submenu;
+	
+	.checkbox {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+}
+
+.lvtBg {
+}
+
+.lvtHeaderText {
+	
+	font-size: $vte_font_size;
+	color:$vte-text-title;
+	font-weight:bold;
+}
+
+.lvtCol {
+	border-top:0px solid $white;
+	border-left:0px solid $grey-300;
+	border-right:0px solid $white;
+	border-bottom:0px solid $white;
+	background: $white url(images/level2Bg.gif) repeat-x scroll center bottom;
+	font-weight:bold;
+}
+
+.lvtColData {
+	background-color:$white;
+}
+
+.lvtColDataHover {
+	background-color:$vte-box-verylight-bg;
+}
+
+.lvtNav ul, .relLvtNav ul {
+	margin: 10px 0px;
+}
+
+/* List View Table classes ends --------------------------------*/
+
+/* Detailed View classes starts +++++++++++++++++++++++ */
+.dvHeaderText{
+	font-size: $vte_font_size;
+	color:$vte-text-title;
+	font-weight:bold;
+}
+
+.dvInnerHeader, .detailedViewHeader {
+	padding: 0px 15px 0px 15px;
+	height: 40px;
+	color: $vte-text;
+	background-color: $vte-submenu;
+}
+
+.recordTitle1 {
+	font-size: $vte_font_size;
+	font-weight:bold;
+	color: $vte-text-record;
+}
+
+/* crmv@98866 */
+.dvtSelectedCell {
+	padding: 5px 20px;
+	font-weight:bold;
+	color: black;
+	line-height:20px;
+    border-bottom: 3px solid #2c80c8;
+}
+
+.dvtSelectedCell a {
+	text-decoration:none;
+	color: black;
+	cursor: default;
+}
+
+.dvtSelectedCellBottom {
+	border-left:1px solid $vte-thin-border;
+	border-bottom:1px solid $vte-thin-border;
+	border-top: none;
+	border-right:1px solid $vte-thin-border;
+	padding-left:20px;
+	padding-right:20px;
+	background:$white url(images/tab.gif) bottom repeat-x;
+	font-weight:bold;
+	color: black;
+	line-height:20px;
+}
+
+.dvtUnSelectedCell {
+	padding-left:20px;
+	padding-right:20px;
+	background: $white ;
+	cursor:pointer;
+	color: black;
+}
+
+.dvtUnSelectedCell a {
+	color: #BBBBBB !important;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* crmv@26896 */
+.dvtUnSelectedCell:Hover {
+	background-color:$vte-box-verylight-bg;
+}
+/* crmv@26896e */
+
+.dvtTabCache {
+}
+/* crmv@98866 end */
+
+.dvtTabCacheBottom {
+	border-top:1px solid $vte-thin-border;
+}
+
+.dvtTabCacheBottom {
+	border-top:1px solid $vte-thin-border;
+}
+
+.dvtContentSpace {
+	/*border-left:1px solid $vte-thin-border;*/
+	/*border-right:1px solid $vte-thin-border;*/
+	/*border-bottom:1px solid $vte-thin-border;*/
+	padding-left:0px;
+}
+
+/* crmv@3085m */
+.dvtCellLabel, .cellLabel {
+	/*background:$white;
+	 * color:$grey-700;
+	 * padding-left:3px;
+	 * padding-right:3px;
+	 * white-space:nowrap;
+	 */
+	@extend .control-label;
+	font-weight:normal;
+	font-size: 12px;
+	color: $vte-field-label;
+}
+
+.dvtCellInfo, .cellInfo, .dvtCellInfoOn, .dvtCellInfoM, .dvtCellInfoMOn {
+	/*position: relative;
+	 * padding:5px;
+	 * min-height:15px;
+	 * border:1px solid $grey-400;
+	 */
+	//-moz-border-radius: 5px; /* Firefox e browser basati su Mozilla */
+	//-webkit-border-radius: 5px; /* Safari, Chrome e browser basati su WebKit */
+	//border-radius: 5px; /* standard CSS3 */
+	@extend .form-group;
+	min-height: 25px;
+	
+	input, select {
+		height: 25px;
+	}
+	font-size:14px;
+}
+
+.dvtCellInfoOff { // crmv@97237
+	min-height: 25px;
+	
+	input, select {
+		height: 25px;
+	}
+	font-size:14px;
+}
+
+.dvtCellInfo, .dvtCellInfoOn {
+	
+	&.field-horiz {
+		> input {
+			display: inline-block;
+		}
+		
+		.dropdownjs {
+			display: inline-block;
+		}
+	}
+}
+
+.detailCellInfo {
+	border-bottom: 1px solid $vte-field;
+	border-spacing: 2px;
+}
+
+.dvtCellInfo {
+}
+
+.dvtCellInfo:hover {
+}
+
+.dvtCellInfoOn {
+}
+
+.dvtCellInfoOff {
+	background-color: $vte-field-disabled;
+	//@extend 
+}
+
+.dvtCellInfoM, .dvtCellInfoMOn {
+	background-color: $vte-field-mandatory;
+	//@extend .has-warning;
+}
+
+.dvtCellInfoM:hover {
+	background-color: saturate($vte-field-mandatory, 5%);
+}
+
+.dvtCellInfoImgLx {
+	top: 2px;
+	left: 5px;
+	position: absolute;
+}
+
+.dvtCellInfoImgRx {
+	top: 2px;
+	right: 5px;
+	position: absolute;
+}
+/*
+ . *dvtCellInfo input, .dvtCellInfo select, .dvtCellInfoOn input, .dvtCellInfoOn select,
+ .dvtCellInfoM input, .dvtCellInfoM select, .dvtCellInfoMOn input, .dvtCellInfoMOn select {
+ border: 0px;
+ }
+ */
+/* crmv@3085me */
+
+/* crmv@57221 */
+.dvtCellInfoOldStyle {
+	width: auto;
+	overflow: auto;
+}
+/* crmv@57221e */
+
+.rightMailMerge {
+	border:1px solid $grey-300;
+}
+
+.rightMailMergeHeader {
+	border-bottom:1px solid $white;
+	padding:5px;
+	background-color:$black;
+	background:  url(images/level2Bg.gif) bottom repeat-x;
+	color:$grey-700;
+}
+
+.rightMailMergeContent {
+	padding:5px;
+	background-color:$white;
+}
+
+/* crmv@15771 */
+.detailedViewTextBoxHour,.detailedViewTextBoxOneHour,.detailedViewTextBoxOneHourOnlyRead {
+	font-size: 11px;
+	color: $vte-text;
+	border:1px solid $grey-400;
+	padding-left:5px;
+	width:90%;
+	background-color:$white;
+}
+/* crmv@15771e */
+
+/* crmv@3085m */
+.detailedViewTextBox, .detailedViewTextBoxOn {
+	/*font-size: 12px;
+	 * color: $vte-text;
+	 * border:0px;
+	 * padding:0px;
+	 * margin:0px;
+	 * width:100%;
+	 * background-color:transparent;
+	 */
+	@extend .form-control;
+	width:100%;
+}
+
+
+.detailedViewTextBox[readonly] {
+	border: 0;
+	background-image: none;
+}
+.dvtCellInfoOff {
+	//border: 0;
+	background-image: none;
+	position: relative;
+}
+
+textarea.detailedViewTextBox.vertical {
+	resize: vertical;
+}
+
+/* crmv@3085me */
+
+.advSearch {
+	padding:10px;
+	border-left:1px solid $grey-200;
+	border-right:1px solid $grey-200;
+	border-bottom:1px solid $grey-200;
+	overflow:auto;
+	width:600px;
+	height:150px;
+	background-color: $vte-box-light-bg2;
+}
+
+/* crmv@98866 */
+.searchAlph {
+	@extend .crmbutton;
+	background-color:$white;
+	cursor:pointer;
+	background-color: #ffffff;
+	padding: 10px;
+	font-weight: 700;
+	border: 1px solid #d2d2d2;
+}
+
+.searchAlphselected {
+	border:1px solid $vte-text-title;
+	background-color:$vte-box-verylight-bg;
+	cursor:pointer;
+	background-color: #2b577c;
+	color: white;
+	font-weight: 700;
+}
+/* crmv@98866 end */
+
+.textbox {
+	border:1px solid $grey-500;
+	background-color:$white;
+	
+	font-size: 11px;
+	width:120px;
+	padding:2px;
+}
+
+.mx {
+}
+
+.calListTable td{
+	border-bottom:1px solid $grey-200;
+	border-left:1px solid $grey-200;
+}
+
+.calDIV {
+	width:100%;
+	border:1px solid $white;
+	
+}
+
+.calDayHour {
+	border:1px solid $vte-box-light-border;
+	background-color:$vte-box-light-bg;
+}
+
+.calAddEvent {
+	position:absolute;
+	z-index:10000;
+	width:500px;
+	left:200px;
+	top:150px;
+	background-color:$white;
+}
+.addEventInnerBox {
+	border:1px dotted $grey-300;
+}
+
+.cellNormal {
+	border:0px;
+	background-color:$white;
+}
+
+.EventToDo{
+	
+}
+
+.thumbnail{
+	background-color:$white;
+	padding: 7px;
+	border: 1px solid $grey-300;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 15px;
+}
+
+.padTab{
+	vertical-align:top;
+}
+
+#user{position:relative;left:0px;top:0px;width:100%;display:block;}
+
+#communication{position:relative;left:0px;top:0px;width:100%;display:block;}
+
+#config{position:relative;left:0px;top:0px;width:100%;display:block;}
+
+#userTab{position:relative;left:0px;top:0px;width:100%;display:none;}
+
+#one{
+position:relative;
+display:block;
+width:245px;
+}
+
+#mnuTab1{
+position:relative;
+overflow:auto;
+width:100%;
+display:none;
+}
+
+#mnuTab2{
+position:relative;
+overflow:auto;
+width:100%;
+display:none;
+}
+
+/* End of Settings */
+
+.bggray{
+	background-color: $grey-300;
+}
+
+.bgwhite{
+	background-color: $white;
+}
+
+.copy{
+	font-size:9px;
+	
+}
+
+#basicTab{
+position:relative;
+overflow:auto;
+width:100%;
+display:block;
+}
+
+#moreTab{
+position:relative;
+overflow:auto;
+width:100%;
+display:none;
+}
+
+/* Added for Advanced Search*/
+
+#one{
+position:relative;
+display:block;
+width:245px;
+}
+
+
+/* Dashboard CSS */
+a.dash_href{
+	display:block;
+	width:24px;height:24px;
+	vertical-align:middle;
+	margin-top:10px;
+}
+
+.dashHeading {
+	
+	font-size:14px;
+	font-weight:bold;
+	color:$grey-800;
+}
+
+.dash_top{
+	background-color: $white;
+	background-repeat:repeat-x;
+	height:36px;
+	vertical-align:middle;
+}
+
+.dash_white{
+	background-color:$white;
+	padding:5px 10px 5px 10px;
+}
+
+.dash_bdr_btm{
+	border-bottom:2px dotted $grey-500;
+}
+
+.dash_count{
+	font-size:36px;
+	font-weight:bold;
+	text-decoration:none;
+	color:$vte-text;
+	padding-left:10px;padding-right:10px;
+}
+
+.dash_switch{
+	cursor:pointer;
+	width:26px;
+	height:26px;
+}
+
+.dash_row_sel{
+	background-image:url(../images/dash_sel_chart.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	width:26px;height:26px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:10px;
+	text-decoration:none;
+}
+
+.dash_row_unsel{
+	background-image:url(../images/dash_unsel_chart.jpg);
+	background-repeat:no-repeat;
+	background-position:center;
+	width:26px;height:26px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:normal;
+	font-size:10px;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.dash_chart_btm{
+	border-bottom:2px solid $black;
+}
+
+/*  menu */
+
+a.submenu{
+	
+	font-size:11px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	border-bottom:1px solid $grey-400;
+	background-color:$grey-200;
+	color:$vte-text;
+	text-align:left;
+	text-decoration:none;
+	display:block;
+}
+
+a.submenu:Hover{
+	background-color:$grey-300;
+	
+	font-size:11px;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	border-bottom:1px solid $grey-400;
+	color:$vte-text;
+	text-align:left;
+	text-decoration:none;
+	display:block;
+}
+
+#mnuKey{
+
+font-size:11px;
+background-color:$grey-700;
+color:$white;
+text-decoration:none;
+padding:5px;
+font-weight:bold;
+width:8px;
+cursor:pointer;
+vertical-align:top;
+height:100px;
+position:relative;
+top:0px;
+left:0px;
+}
+
+#slidemenu{
+height:525px;
+vertical-align:top;
+width:100px;
+background-color:$grey-400;
+border-right:1px solid $grey-400;
+opacity:.9;
+display:none;
+}
+
+/* clock */
+
+.citystyle{
+	position:relative;
+	top:0px;
+	left:0px;
+	text-align:left;
+}
+
+#theClockLayer{
+position:relative;
+height:180px;
+left:20px;
+text-align:center;
+}
+
+.handsanddotsstyle{
+	margin-top:10px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:2px;
+	height:2px;
+	font-size:2px;
+	background-color:$black;
+}
+
+.facestyle{
+	margin-top:10px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:15px;
+	height:15px;
+	text-align:center;
+	font-size:10px;
+	color:$vte-text;
+}
+
+.datestyle{
+	margin-top:20px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100px;
+	text-align:center;
+	font-size:10px;
+	color:$vte-text;
+}
+
+.ampmstyle{
+	margin-top:23px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:20px;
+	text-align:center;
+	font-size:10px;
+	color:$vte-text;
+}
+
+#wclock{
+	position:absolute;
+	left:100px;
+	top:100px;
+	display:none;
+	background-color:$grey-400;
+	width:175px;
+}
+
+.leftFormBorder1 {
+	border: 1px solid $vte-box-medium-border;
+	background-color: $white;
+	opacity:.7;
+}
+
+@import 'calculator';
+
+@import 'charts'; // crmv@82770
+
+/* RSS STYLES */
+.subHdr{
+	
+	font-size:$vte_font_size;
+	color:$white;
+	background-image:url(../images/rssHeader.gif);
+	background-position:top left;
+	background-repeat:repeat-x;
+	height:27px;
+	padding:0px 10px 0px 10px;
+	vertical-align:middle;
+}
+
+.delBg{
+	
+	font-size:$vte_font_size;
+	color:$white;
+	background-image:url(../images/rssdelete.gif);
+	background-position:top left;
+	background-repeat:repeat-x;
+	height:27px;
+	padding:0px 10px 0px 10px;
+	vertical-align:middle;
+}
+
+#rssScroll {
+	font-size:$vte_font_size;
+	background-color:$white;
+	width:100%;
+	height:200px;
+	overflow:auto;
+	border:0px solid $black;
+}
+
+.rssTable{
+	width:100%;
+	border:0px solid $grey-400;
+}
+
+.rssTable tr th{
+	background:$grey-200 none repeat scroll 0%;
+	color:$vte-text;
+	border-bottom:1px solid $grey-300;
+	border-top:1px solid $grey-300;
+	height:20px;
+	padding-left:5px;
+	padding-right:5px;
+	text-align:left;
+}
+
+.rssTable tr td{
+	text-align:left;
+	border-bottom:1px dotted $grey-300;
+	border-left:1px dotted $grey-300;
+	
+	font-size:11px;
+	font-weight:normal;
+	white-space:nowrap;
+	padding:2px;
+}
+
+.forwardBg{
+	
+	font-size:$vte_font_size;
+	color:$vte-text;
+	background-image:url(../images/rssforward.gif);
+	background-position:top left;
+	background-repeat:repeat-x;
+	height:27px;
+	padding:0px 10px 0px 10px;
+	vertical-align:middle;
+	background-color:$grey-300;
+}
+
+
+/*  New Styles */
+.mnuTab{
+	
+	font-size:$vte_font_size;
+	color:$vte-text;
+	width:100%;
+	border:0px solid $black;
+}
+
+.mnuTab tr td{
+	border-bottom:1px solid $grey-200;
+	padding-left:5px;
+	vertical-align:middle;
+}
+/* profile */
+
+.prvPrfBigText {
+	
+	font-size: 14px;
+}
+
+.prvPrfTopBg {
+	background-color:$grey-200;
+}
+
+.prvPrfBottomBg {
+	background-color:$grey-200;
+}
+
+.prvPrfOutline {
+	border:1px solid $grey-200;
+}
+
+.prvPrfTexture {
+	background:url(../images/prvPrfTexture1.gif);
+}
+
+.prvPrfHoverOn {
+	background-color: $vte-box-light-bg2;
+}
+
+/*  Organization */
+
+.orgTab{
+	
+	font-size:11px;
+	font-weight:normal;
+	color:$grey-700;
+	border:0px solid $grey-500;
+	border-collapse:collapse;
+	width:100%;
+}
+
+.orgTab tr th{
+	text-align:left;
+	
+	font-size:$vte_font_size;
+	text-decoration:none;
+	font-weight:bold;
+	height:20px;
+	padding-left:5px;
+}
+
+.orgTab tr td{
+	
+	font-size:11px;
+	text-decoration:none;
+	font-weight:normal;
+	padding-left:5px;
+	height:20px;
+	border-bottom:1px solid $grey-400;
+	border-right:1px solid $grey-400;
+}
+
+/* Groups */
+.groupli{
+	margin-left:20px;
+	
+	font-weight:normal;
+	font-size:$vte_font_size;
+	text-decoration:none;
+	color:$grey-900;
+	list-style-type:none;
+	text-align:left;
+}
+
+/* tree menu */
+
+/*Oraganization Edit Features */
+
+#orgLay{
+font-size:11px;
+text-align:left;
+width:500px;
+border:3px solid $grey-400;
+background-color:$white;
+display:block;
+position:absolute;
+left:0px;
+top:0px;
+z-index: 21;
+}
+
+/*  Role */
+
+#roleLay{
+font-size:11px;
+text-align:left;
+width:300px;
+display:none;
+position:absolute;
+}
+
+.classBtn{
+	text-decoration:none;
+	font-weight:normal;
+	font-size:10px;
+	background-color:$grey-300;
+	border-bottom:2px solid $grey-500;
+	border-right:2px solid $grey-500;
+	border-top:2px solid $grey-100;
+	border-left:2px solid $grey-100;
+	color:$vte-text;
+	text-align:center;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.txtBox{
+	width:85%;
+	border:1px solid $grey-700;
+	font-size:11px;
+}
+
+/* crmv@25356 */
+.txtBox1{
+	border: 1px solid $grey-300;
+	min-height: 20px;
+	width: 100%;
+}
+/* crmv@25356e */
+
+/*  IMPORT LEADS */
+
+.leadTable{
+	border:3px solid $grey-400;
+	border-collapse:collapse;
+}
+
+.leadTable tr td{
+}
+
+.genHeaderGray{
+	
+	font-size: 14px;
+	line-height: 16px;
+	color: $grey-600;
+	font-weight:bold;
+}
+
+.genHeaderGrayBig{
+	
+	font-size: 18px;
+	line-height: 16px;
+	color: $grey-600;
+	font-weight:bold;
+}
+
+.importBox{
+	width:125px;
+	border:1px solid $grey-700;
+	
+	font-size:11px;
+}
+
+/* PICK LIST */
+ul li{
+	padding-bottom:2px;
+	padding-top:2px;
+}
+/* MY PREFERENCES */
+
+/* CSS FOR REPORTS */
+
+/* crmv@29686 */
+.reportRowTitle {
+	color: $white;
+	background-color: lighten(desaturate($vte-primary, 20%), 20%);;
+}
+
+.reportRow0 {
+	background-color: $vte-submenu;
+}
+
+.reportRow1 {
+	background-color: $white;
+	
+}
+/* crmv@29686e */
+
+.reportHdr{
+	background-color:$grey-300;
+	font-size:$vte_font_size;
+	font-weight:bold;
+	vertical-align:middle;
+	text-align:left;
+	height:30px;
+	border-bottom:2px solid $grey-500;
+	color:$vte-text;
+	padding-left:10px;
+}
+
+#reportLay{
+width:300px;
+border:1px solid $grey-300;
+padding-top:5px;
+position:absolute;
+display:none;
+z-index:2000;
+}
+
+#locateMap{
+width:150px;
+background-color:$grey-400;
+border:1px solid $grey-300;
+padding-top:5px;
+position:absolute;
+display:none;
+z-index:2000;
+}
+
+a.reportMnu{
+	font-size:11px;
+	color: $vte-text-title;
+	text-decoration:none;
+	display:block;
+	width:155px;
+	height:20px;
+	border-bottom:1px solid $grey-300;
+	padding-left:20px;
+	padding-top:3px;
+}
+
+a.reportMnu:Hover{
+	font-size:11px;
+	color: $vte-text-title;
+	text-decoration:underline;
+	display:block;
+	width:155px;
+	height:20px;
+	border-bottom:1px solid $grey-300;
+	padding-left:20px;
+	padding-top:3px;
+}
+
+#Generate{
+position:relative;
+width:100%;
+text-align:center;
+display:none;
+}
+/* END OF REPORT */
+
+/* WEB MAIL */
+a.webMnu{
+	font-size:$vte_font_size;
+	color:$vte-text-title;
+	text-decoration:none;
+}
+
+a.webMnu:Hover{
+	font-size:$vte_font_size;
+	color:$vte-text-title;
+	text-decoration:none;
+	background-color:$vte-box-light-bg;
+}
+
+/*  END OF WEB MAIL */
+
+/* POPUP */
+
+a.alpha{
+	font-size:11px;
+	color:gray;
+	text-decoration:none;
+	padding-Left:5px;
+	padding-right:5px;
+	border:1px dotted $grey-400;
+	background-color: $vte-help-box;
+}
+
+a.alpha:hover{
+	font-size:11px;
+	color:gray;
+	text-decoration:underline;
+	padding-Left:5px;
+	padding-right:5px;
+	border:1px dotted $grey-400;
+	background-color: $vte-help-box;
+}
+
+
+.fontBold{
+	font-size:$vte_font_size;
+	color:$vte-text;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.style_Gray{
+	color:gray;
+}
+
+/* End of Home Page */
+
+@import 'home';
+
+@import 'modulehome'; /* crmv@83340 */
+
+
+/* Calendar */
+.calHdr{
+	background-image:url(images/light-bg-cal.gif);
+	background-repeat:repeat-x;
+	background-position:left top;
+}
+
+.calSel{
+	background: $white;
+	border-top: 3px solid $vte-primary;
+	border-bottom: 0px solid $grey-300;
+	border-right:1px solid $grey-300;
+	text-align:center;
+	color:$vte-text;
+	font-weight:bold;
+	text-transform:uppercase;
+	width:8%;
+}
+
+.calAddButton {
+	border: 1px solid $grey-300;
+	background:$white url(images/calAddButton.gif) repeat-x;
+	cursor:pointer;
+	height:30px;
+	line-height:25px;
+}
+
+.calInnerBorder {
+	border-left:2px solid $grey-300;
+	border-right:2px solid $grey-300;
+	border-bottom:2px solid $grey-300;
+}
+
+.calBorder {
+	border-left: 1px solid $grey-300;
+	border-right: 1px solid $grey-300;
+	border-bottom: 1px solid $grey-300;
+	background: $white;
+	
+}
+.calTopRight {
+	border-right: 1px solid $grey-300;
+}
+
+.calUnSel{
+	color:$vte-text;
+	font-weight:normal;
+	text-align:center;
+	width:8%;
+	border-right:1px solid $grey-300;
+}
+
+a.calMnu{
+	font-size:11px;
+	color:$vte-text-title;
+	text-decoration:none;
+	display:block;
+	height:20px;
+	padding-left:5px;
+	padding-top:3px;
+}
+
+a.calMnu:Hover{
+	font-size:11px;
+	color:$vte-text-title;
+	text-decoration:underline;
+	display:block;
+	height:20px;
+	padding-left:5px;
+	padding-top:3px;
+}
+
+.bgwhite{
+	background-color: $white;
+}
+.copy{
+	font-size:9px;
+	
+}
+
+#mnuTab{
+position:relative;
+width:100%;
+display:block;
+}
+
+#mnuTab2{
+position:relative;
+overflow:auto;
+width:100%;
+display:none;
+}
+.style1 {
+	color: $red;
+}
+
+.event{
+	background-color: $vte-primary;
+	border:2px solid $grey-300;
+	text-align:left;
+	width:100%;
+	position:relative;
+	left:0px;
+	top:0px;
+	vertical-align:middle;
+	padding:1px;
+}
+
+#hrView{
+	display:block;
+}
+
+.calendarNav{
+	font-size:16px;
+	color: $vte-text-title;
+	white-space:nowrap;
+	text-align:center;
+	font-weight:bold;
+	padding-left:10px;
+	padding-right:10px;
+	background:$white none repeat scroll 0%;
+}
+
+#addEventDropDown{
+position:absolute;
+display:none;
+width:150px;
+border:1px solid $grey-300;
+left:0px;
+top:0px;
+overflow:visible;
+z-index:5000;
+}
+
+.calAction{
+	width:175px;
+	background-color:$grey-400;
+	border:1px solid $grey-300;
+	padding-top:5px;
+	position:absolute;
+	display:none;
+	z-index:2000;
+}
+
+.calSettings{
+	position:absolute;
+	z-index:20000;
+	width:500px;
+	left:200px;
+	top:150px;
+	background-color:$white;
+}
+
+.outer{
+	border-bottom:1px solid $grey-400;
+	border-left:1px solid $grey-400;
+	border-right:1px solid $grey-400;
+}
+
+.calTxt{
+	width:50%;
+	border:1px solid $grey-400;
+	
+	font-size:11px;
+	text-align:left;
+	padding-left:5px;
+}
+
+#leadLay{
+position:relative;
+width:100%;
+float:left;
+visibility:hidden;
+padding:5px;
+z-index:10000;
+}
+
+/* End of Calendar */
+
+/* Cal Year View */
+.eventDay{
+	background-color: $vte-submenu;
+	font-weight:bold;
+}
+
+.currDay{
+	background: $vte-menusep url(images/toolbar-bg.png) repeat scroll 0%;
+	border:1px solid $grey-300;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+.currDay a{
+	color:$white;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+/* End of Cal Year View */
+
+/* Level 2 Menu Selected*/
+
+level2Sel{
+	color:$vte-text;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+#DeleteLay{}
+
+#CurrencyDeleteLay{
+
+font-size:11px;
+text-align:left;
+width:450px; /* crmv@42266 */
+}
+
+@import 'reports'; // crmv@96742
+
+.statechange {
+	position:absolute;
+	visibility:hidden;
+	left:10px;
+	top:20px;
+	width:300px;
+	border:3px solid $grey-400;
+	background-color:$white;
+}
+
+#PopupLay{
+position:absolute;
+
+font-size:11px;
+text-align:left;
+width:500px;
+border:3px solid $grey-400;
+background-color:$white;
+padding:5px;
+display:none;
+left:100px;
+top:100px;
+}
+
+#folderLay{
+width:500px;
+border:1px solid $grey-300;
+padding-top:5px;
+position:absolute;
+display:none;
+}
+
+/* MY SITES */
+
+.tagCloud {
+	border:1px solid $grey-300;
+}
+
+.tagCloudTopBg {
+	background: url(images/tagCloudBg.gif) repeat-x;
+}
+
+.tagCloudDisplay {
+	background-color:$white;
+	padding:10px;
+	
+	font-size: 11px;
+	line-height: 14px;
+	color: $vte-text;
+}
+
+.h2 {
+	font-size:18px;
+	line-height:20px;
+}
+
+.gray {
+	color:gray;
+}
+
+ul {
+	list-style:circle;
+	line-height:20px;
+	padding-left:5px;
+	margin-left:20px;
+	font-weight:normal;
+}
+
+.tagCloudTopBg {
+	background-image: url(images/tagCloudBg.gif);
+	background-repeat: repeat-x;
+}
+
+.tagCloudDisplay {
+	background-color:$white;
+	padding:5px;
+}
+
+.heading2 {
+	
+	font-size: 16px;
+	line-height: 16px;
+	font-weight:bold;
+	color: $vte-text;
+}
+
+/* crmv@30683 */
+.settingsUI {
+	text-align:left;
+	background:$white;
+}
+
+.settingsTabHeader {
+	text-align:left;
+	font-size: $vte_font_size;
+	line-height:30px;
+	font-weight:bold;
+	color:$vte-text;
+	background-color:$vte-submenu;
+	padding-left:10px;
+	padding-right:10px;
+	border-top: $black;
+}
+
+.settingsTabList {
+	text-align:left;
+	font-size: 11px;
+	color: $vte-text;
+	background-color: $vte-wizard-tab;
+	/*border: 1px solid $white;*/
+	
+	&.settingsTabListMouse:hover {
+		background-color: lighten($vte-wizard-tab, 2%);
+	}
+	
+    margin: 2px;
+    cursor: pointer;
+    line-height: 3rem;
+    padding: 1rem 1rem;
+    font-weight: normal;
+    padding-left: 15px;
+    border: 1px solid #FFFFFF;
+}
+
+.settingsTabSelected {
+	text-align:left;
+	font-size: 11px;
+	color:$vte-text;
+	background-color: $vte-wizard-tab-selected;
+	
+	&.settingsTabListMouse:hover {
+		background-color: lighten($vte-wizard-tab-selected, 2%);
+	}
+	
+ 	margin: 2px;
+    cursor: pointer;
+    line-height: 3rem;
+    padding: 1rem 1rem;
+    font-weight: normal;
+    padding-left: 15px;
+    border: 1px solid #FFFFFF;
+}
+/* crmv@30683e */
+
+/* crmv@30976 */
+.settingsTabListMouse {
+	cursor: pointer;
+}
+/* crmv@30976e */
+
+.settingsSelectedUI {
+	padding-bottom: 5px;
+	background-color:$white;
+	padding: 5px 10px;
+}
+
+.settingsIconDisplay {
+	font-size: 11px;
+	line-height:14px;
+	padding:10px;
+	color:$vte-text;
+	background-color:$white;
+	padding-left:10px;
+}
+
+.settingsSelUITopLine{}
+
+.tableHeading{
+	background:$white url(images/level2Bg.gif) repeat-x scroll center bottom;
+}
+
+.colHeader{
+	background-color:$white;
+	background-repeat:repeat-x;
+	background-image:url(images/mailSubHeaderBg-grey.gif);
+	border-left:1px solid $white;
+	border-top:1px solid $grey-300;
+	border-right:1px solid $grey-300;
+	border-bottom:1px solid $grey-300;
+	font-weight:bold;
+}
+
+.cellLabel {
+	background-color:$white;
+	border-bottom:1px solid $vte-box-verylight-bg;
+	color:$grey-700;
+}
+
+.cellText {
+	color:$grey-900;
+	border-bottom:1px solid $vte-box-verylight-bg;
+}
+
+.listTable{
+	border-left:1px solid $grey-400;
+	border-right:1px solid $grey-400;
+	border-bottom:1px solid $grey-400;
+}
+
+.listTableRow{
+	border-bottom:1px solid $grey-200;
+	border-right:1px solid $grey-200;
+	border-bottom:1px solid $grey-200;
+	border-bottom:1px solid $grey-200;
+}
+
+.listRow{
+	border-bottom:2px solid $grey-200;
+}
+
+.listTableTopButtons{
+	background: $white;
+}
+
+/*  Buttons */
+.crmButton, .crmbutton {
+	/*border: 0px;
+	 *   cursor:pointer;
+	 * border: 1px solid $grey-400;
+	 * height: 24px;
+	 * color: $vte-text;
+	 * font-size: 12px;
+	 * outline: medium none;
+	 * button::-moz-focus-inner { border: 0; };
+	 */
+	@extend .btn;
+	@extend .btn-default;
+	@extend .btn-xs;
+	margin: 2px;
+}
+
+/* crmv@26807 */
+/*
+ . *crmButton:hover, .crmbutton:hover {
+ Filter: Alpha(opacity = 70);
+ -moz-opacity: 0.7;
+ opacity: 0.7;
+ }
+ */
+
+.picklistButton {
+	background: $white url("images/movecol_down.gif") right center no-repeat;
+	background-color: $grey-300;
+	text-align: left;
+}
+/* crmv@26807e */
+
+.create {
+	/*color: $grey-800;
+	 * border: 1px solid $grey-100;
+	 * background-color: $grey-100;
+	 */
+}
+
+.delete {
+	/*
+	 * color: $white;
+	 * border: 1px solid $vte-button-delete;
+	 * background-color: $vte-button-delete;
+	 */
+	@extend .btn-danger;
+}
+
+.edit {
+	/*color: $grey-800;
+	 * border: 1px solid $grey-100;
+	 * background-color: $grey-100;
+	 */
+}
+
+.save {
+	/*
+	 * color: $white;
+	 * border: 1px solid $vte-button-save;
+	 * background-color: $vte-button-save;
+	 */
+	@extend .btn-success;
+}
+
+.cancel {
+	/*
+	 * color: $white;
+	 * border: 1px solid $vte-button-delete;
+	 * background-color: $vte-button-delete;
+	 */
+	@extend .btn-warning;
+}
+
+//crmv@104533
+.search {
+	@extend .btn-primary;
+}
+//crmv@104533e
+
+.inactive {
+	color:$grey-500;
+}
+
+.active {
+	color: $success;
+}
+
+.simpleSave {
+	color: $vte-button-save;
+}
+
+.simpleCancel {
+	color: $vte-button-delete;
+}
+
+/* Buttons ends */
+.treeTable1{
+	padding:0px;
+}
+
+.cellBottomDotLine {
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: $grey-400;
+	background-color:$grey-200;
+}
+
+.crmFormList{
+	border:1px solid $grey-400;
+	width:90%;
+	height:120px;
+}
+
+.cellBottomDotLinePlain {
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: $grey-400;
+}
+
+.thickBorder {
+	border: 2px solid $grey-500;
+}
+
+.trackerHeading {
+	background-color:$grey-200;
+}
+
+.trackerListBullet {
+	border-right:1px dotted $grey-400;
+	background-color:$grey-50;
+}
+
+.trackerList {
+	border-bottom:1px solid $grey-200;
+}
+
+/* Table Definitions */
+.crmTable {
+	border:1px solid $grey-300;
+}
+
+.crmTableRow {
+	border-bottom:1px dotted $grey-300;
+	border-right:1px dotted $grey-300
+}
+
+/* Inventory */
+.lineOnTop {
+	border-top:1px solid $grey-500;
+}
+
+.discountUI {
+	width:350px; /* crmv@42024 */
+	position:absolute;
+	display:none;
+}
+
+.TaxShow{
+	border:3px;
+}
+
+.TaxHide{
+	display:none;
+}
+
+
+/* Email Client Classes ++++++++++++++++++++++ */
+
+.mailClient{
+	border-top:0px solid $grey-300;
+	border-right:0px solid $grey-300;
+	border-left:0px solid $grey-300;
+	border-bottom:0px solid $grey-300;
+}
+
+.mailClientBg {
+	background: $vte-submenu;
+	border:0;
+}
+
+.mailSubHeader {
+	background:$white url(images/level2Bg.gif) repeat-x scroll center bottom;
+	padding:4px;
+}
+
+.mailClientWriteEmailHeader {
+	padding:10px;
+	font-size:16px;
+	line-height:24px;
+	color:$vte-text-title;
+	min-height: 50px;
+    text-indent: 10px;
+}
+
+.mailClientCSSButton {
+	border-left:1px solid $white;
+	border-top:1px solid $white;
+	border-right:1px solid $white;
+	border-bottom:1px solid $white;
+	padding:2px;
+	background-color:$white;
+}
+
+/* Email Client Classes ends ------------------------------------ */
+
+
+
+/* Layer Popup */
+.layerPopup {
+	position:absolute;
+}
+
+.layerPopupHeading {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.layerHeadingULine {
+	border-bottom: 2px solid $vte-text-title;
+}
+
+.layerPopupTransport {}
+
+.reportsListTable {
+	background-color:white;
+	border-left:1px solid $grey-300;
+	border-right:1px solid $grey-300;
+	border-bottom:1px solid $grey-300;
+}
+
+.reportGenerateTable{
+	background: $white;
+	border-left:2px dotted $vte-primary;
+	border-right:2px dotted $vte-primary;
+	border-bottom:2px dotted $vte-primary;
+}
+
+.reportCreateBottom{
+	background-color: $vte-submenu;
+}
+
+.importLeadUI{
+	background-color:white;
+}
+
+.customMnu{
+	text-decoration: none;
+	color:$vte-text;
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+.customMnuSelected{
+	background-color:$vte-primary;
+	color:$white;
+}
+
+/* Drop Down Menu */
+.drop_mnu_all{
+	position:fixed;
+	z-index:1000000001;
+	min-width:300px;
+	display:none;
+	padding:0px;
+	text-align:left;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	margin-top: 0px;
+	border-top:0px;
+	border-left: 1px solid $vte-submenusep;
+	border-right: 1px solid $vte-submenusep;
+	border-bottom: 1px solid $vte-submenusep;
+	background-color: $vte-submenu;
+}
+
+.drop_mnu{
+	position:fixed;
+	left:0px;
+	top:0px;
+	z-index:1000000001;
+	border-left: 1px solid $vte-submenusep;
+	border-right: 1px solid $vte-submenusep;
+	border-bottom: 1px solid $vte-submenusep;
+	width:150px;
+	display:none;
+	padding:0px;
+	text-align:left;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	background-color: $vte-submenu;
+	margin-top: 0px;
+}
+
+a.drop_down {
+	width:150px;
+	text-align:left;
+	font-size: 11px;
+	line-height:20px;
+	font-weight:normal;
+	padding:2px 5px 2px 5px;
+	display:block;
+}
+
+a.drop_down:Hover, a.drop_down_hover {
+	padding:2px 5px 2px 5px;
+	width:150px;
+	text-align:left;
+	font-weight:normal;
+	text-decoration:none;
+	color: $white;
+	background-color: $vte-menusep;
+}
+
+.bgwhite{
+	background-color: $white;
+}
+
+
+/* Recalculate Disabling Window */
+
+/*.veil{
+ * background-color: $black;
+ *   height: 100%;
+ *   width: 100%;
+ *   top: 0px;
+ *   left: 0px;
+ *   overflow: hidden;
+ *   z-index: 10000;
+ *   Filter: Alpha(opacity = 70);
+ *   -moz-opacity: 0.7;
+ *   text-align: center;
+ *   vertical-align: middle;
+ *   position: absolute;
+ } **/
+
+.veil_new, .veil_light {
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+	z-index: 50000;
+	text-align: center;
+	vertical-align: middle;
+	position: fixed;
+}
+
+.veil_new {
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.veil_light {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.1em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.1em solid #ffffff;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+
+.vteLoader {
+	@extend .loader;
+	border-top: 1.1em solid rgb(235,235,235);
+    border-right: 1.1em solid rgb(235,235,235);
+    border-bottom: 1.1em solid rgb(235,235,235);
+    border-left: 1.1em solid #2c80c8;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* crmv@91082 */
+.login_overlay {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 100;
+	background: $black;
+	opacity: 0.7;
+	filter: alpha(opacity=70);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";   
+}
+#mask_login {
+	height: 600px;
+	width: 500px;
+	top: 20px;
+	left: 50px;
+	border: 1px solid $black;
+	background: $white;
+}
+#logout_reason_msg {
+	width: 100%;
+	text-align: center;
+	padding-top: 10px;
+	position: absolute;
+}
+/* crmv@91082e */
+
+.optioncontainer{
+	vertical-align: middle;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index: 90000;
+}
+
+.options{
+	vertical-align: middle;
+	margin-left: 25%;
+	margin-top: 16%;
+	width:650px;
+	background-color: $white;
+	border: 2px solid $grey-900;
+	position: relative;
+	text-align: left;
+	z-index: 80000;
+}
+
+.options h2{
+	border-bottom: 1px solid $vte-text-title;
+	margin: 0;
+	font-weight: normal;
+}
+
+/* Recalculate Disable Ends */
+
+.hide_tab{display:none;}
+
+.show_tab{display:table-row;} /* crmv@30014 */
+
+.winmarkModulesusr{
+	/* removed */
+}
+
+.winmarkRSS{
+	/* removed */
+}
+
+.winmarkDashboardusr{
+	/* removed */
+}
+
+.groupname{
+	width:125px;
+}
+
+.winmarkModulesdef{
+	background-position:bottom left;
+	background-repeat:repeat-x;
+}
+
+/*added for the hanlder of the div in the home page */
+.headerrow{
+	cursor:move;
+}
+
+.repBox{
+	width:100px;
+	border:1px solid $grey-700;
+	font-size:11px;
+}
+
+.repBox1{
+	width:200px;
+	border:1px solid $grey-700;
+	font-size:11px;
+}
+
+.warning {
+	color: $vte-text-title;
+}
+
+.multiCurrencyEditUI{
+	border:3px solid $grey-400;
+	width:500px;
+	padding:5px;
+	position:absolute;
+	background-color:$white;
+	display:none;
+}
+
+.multiCurrencyDetailUI{
+	border:3px solid $grey-400;
+	width:250px;
+	padding:5px;
+	position:absolute;
+	background-color:$white;
+	display:none;
+}
+
+.colData{
+	border-right:1px solid $grey-300;
+}
+
+.thickborder{
+	border:3px solid $grey-400;
+}
+
+/* feedback or help message */
+.helpmessagebox {
+	padding: 2px;
+	margin: 0 0 2px 0;
+	// crmv@104568
+	//background-color: $vte-help-box;
+	//border: 1px solid $vte-help-box-border;
+	// crmv@104568e
+}
+
+/* crmv@20047 */
+TD.altaltnav {
+	cursor: pointer;
+}
+
+TD.altnav {
+	padding-right: 10px;
+}
+/* crmv@20047e crmv@23344e */
+
+.attachmentsEmail {
+	border: 1px solid $grey-300;
+	border-radius: 4px 4px 4px 4px;
+	padding: 5px 5px 3px 5px;
+}
+
+/* crmv@26512 */
+.webmailbutton a:hover {
+	text-decoration: none;
+}
+/* crmv@26512e */
+
+/* crmv@26986 */
+.crmvDiv, .discountUI, .layerPopup {
+	border: 1px solid $grey-400;
+	background: $white;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+	border-radius: 2px;
+}
+.crmvDivContent {
+	max-height:500px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+.closebutton, a.fancybox-close {
+	position:absolute;
+	top:-15px;
+	left:-15px;
+	width:30px;
+	height:30px;
+	background:transparent url('../../../include/js/jquery_plugins/fancybox/fancybox.png') -40px 0px;
+	cursor:pointer;
+	display:block;
+}
+/* crmv@26986e */
+
+/* crmv@48501 */
+.notTbl {
+	border: 1px solid $grey-300;
+	background: $vte-box-light-bg2;
+}
+/* crmv@48501e */
+
+label {
+	cursor:pointer;
+	margin-bottom: 0px;
+}
+
+/* crmv@29079 */
+.detailedViewModCommTextBox, .detailedViewModCommTextBoxOn, #editareaModComm, .detailedViewModCommTextBox, .tbl_ModCommReplies {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 100%;
+}
+.detailedViewModCommTextBox {
+	height: 22px;
+}
+.detailedViewModCommTextBoxOn {
+	height: 70px;
+}
+.dataField, .dataFieldReply {
+	padding-top: 5px;
+}
+.dataLabel, .dataLabelReply {
+	padding-bottom: 5px;
+}
+.dataField, .dataLabel, .dataContent {
+	/*background: $vte-submenu;*/
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.dataFieldReply, .dataLabelReply {
+	background: $white;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.dataImg, .dataImgReply {
+	vertical-align: top;
+	text-align: center;
+	width: 32px;
+	padding: 2px;
+}
+.dataImg {
+	/*background: $vte-submenu;*/
+}
+.dataImgReply {
+	background: $white;
+}
+.ModCommAnswerBox, .ModCommReplies {
+	/*background: $vte-submenu;*/
+}
+.ModCommUnseen {
+	background: saturate(lighten($vte-primary, 40%), 50%);
+}
+#ModComments_sub {
+	position: absolute;
+	border-left:1px solid $grey-300;
+	border-right:1px solid $grey-300;
+	border-bottom:1px solid $grey-300;
+	width:150px;
+	padding:0px;
+	text-align:left;
+	overflow-x:hidden;
+	overflow-y:hidden;
+	background-color: $vte-submenu;
+}
+/* crmv@29079e */
+/* crmv@30850 */
+.dataId {
+	display: none;
+}
+/* crmv@30850e */
+/* crmv@30967 */
+.lview_folder_tooltip {
+	display: none;
+	position: absolute;
+	width: 200px;
+}
+
+.lview_folder_table {
+	width: 100%;
+}
+
+.lview_folder_td {
+	height: auto;
+	float: left;
+	clear: none;
+	text-align: center;
+}
+
+.lview_folder_desc {
+	color: $grey-600;
+	margin: 6px;
+}
+
+.lview_foldertt_table {
+	background-color: $white;
+	width: 100%;
+}
+
+.lview_foldertt_title {
+	padding: 2px;
+}
+
+.lview_foldertt_row {
+	padding: 1px;
+	
+	border-left: 1px solid $grey-300;
+	border-right: 1px solid $grey-300;
+}
+
+.lview_foldertt_lastrow {
+	padding: 1px;
+	
+	border-left: 1px solid $grey-300;
+	border-right: 1px solid $grey-300;
+	border-bottom: 1px solid $grey-300;
+}
+/* crmv@30967e */
+
+.disabled {
+	color: gray;
+}
+
+.NotificationDiv {
+	font-size: 11px;
+}
+
+.notificationItem {
+	font-size: 14px;
+}
+
+.notificationItem:not(:first-child) {
+	border-top: 1px solid $vte-thin-border;
+}
+
+.notificationItem td {
+	padding: 0px;
+}
+
+.ButtonsListContestualSmall, .ButtonsListContestualLarge {
+	margin-left: 5px;
+	padding-left: 5px;
+	white-space: nowrap;
+	border-left: 1px solid $vte-submenusep;
+}
+
+/* crmv@2963m */
+#PageContents #Folders {
+	background-color: $vte-box-verylight-bg;
+}
+
+#PageContents #ListViewContents {
+	background-color: $vte-box-verylight-bg;
+	outline: 1px solid $grey-300;
+}
+
+#PageContents #TurboliftContents {
+	background-color: $white;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-top: 5px;
+}
+
+.listMessageTitle {
+	color: $vte-text;
+	font-size: $vte_font_size;
+	text-decoration: none;
+	font-weight: bold;
+	width: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ellipsisbtn-100 {
+	width: 100px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.listMessageFrom {
+	color: $vte-text;
+	font-size: 15px;
+	font-weight: bold;
+}
+.listMessageSubject {
+	color: $vte-text;
+	font-size: $vte_font_size;
+	text-decoration: none;
+}
+.listMessageRow {
+	cursor: pointer;
+	border-bottom: 1px solid $grey-300;
+}
+.folderMessageRow {
+	height: 40px;
+	border-bottom: 1px solid $grey-300;
+}
+.previewEntity {
+	background-color: $vte-box-verylight-bg;
+	cursor: pointer;
+	border: 1px solid $grey-400;
+}
+.previewEntitySelected {
+	background-color: $vte-box-medium-bg;
+	cursor: pointer;
+	border: 1px solid $grey-400;
+}
+.cardLabel {
+	padding: 5px;
+}
+.cardIcon {
+	padding: 5px;
+}
+.cardContent {
+	border-top: 1px solid #e0e0e0;
+	padding: 0px 2px;
+}
+.cardContent>table {
+	background-color: $white;
+    word-break: break-all;
+}
+.cardContent>table .fieldLabel {
+	font-size: 12px;
+}
+.cardContent>table .fieldValue {
+    font-size: 13px;
+}
+.lvtColDataHoverMessage {
+	background-color: $vte-box-medium-bg;
+}
+.MessagePre {
+	width: 500px;
+	font-family: monospace;
+	margin: 0px;
+}
+.fieldLabel {
+	font-size: 10px;
+	color: gray;
+}
+.cpanel_div {
+
+	border: 1px solid $vte-button-border;
+	
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	
+	padding: 10px;
+	margin: 10px;
+	
+	min-height: 90px;
+	vertical-align: middle;
+	
+	&:hover {
+		box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+	}
+}
+.cpanel_left_credits {
+	font-size: 20px;
+}
+/* crmv@2963me */
+/* crmv@3085m */
+.turbolift {
+	margin-left: 2px;
+	&.nav-stacked li:first-child {
+		border-top: 1px solid $vte-button-border;	
+	}
+	&.nav-stacked>li+li {
+		margin-top: 0px;	
+	}
+}
+.turboliftEntry, .turboliftEntrySelected, .turboliftEntry1, .turboliftEntry2 {
+	padding: 2px;
+	min-height: 30px;
+	cursor:pointer;
+	
+	/*margin-top: 5px;
+	 * padding: 5px;
+	 * font-size: $vte_font_size;
+	 * outline: medium none;
+	 * button::-moz-focus-inner { border: 0; };
+	 */
+}
+
+// crmv@104568
+.turboliftEntry, .turboliftEntryWithImage {
+	
+	.turboliftLabel {
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		//width: 80%;
+	}
+	
+}
+// crmv@104568e
+
+.turboliftEntry {
+	/*color: $grey-800;
+	 * border: 1px solid $vte-submenu;
+	 * background-color: $vte-submenu;
+	 * box-sizing: border-box;
+	 */
+	@include turboliftEntryBase;	
+	background-color: $white;
+	
+	.badge {
+		background-color: $vte-primary;
+		margin-top: 4px;
+	}
+	.vteicon.icon-module[data-first-letter] {
+		color: $vte-primary;
+	}
+}
+.turboliftEntrySelected {
+	@include turboliftEntryBase;
+	background-color: $vte-primary;
+	color: $white;
+	
+	.badge {
+		background-color: $white;
+		color: $vte-primary;
+		margin-top: 4px;
+	}
+	.vteicon.icon-module[data-first-letter] {
+		color: $white;
+	}
+}
+
+/*
+ . *turboliftEntrySelected {
+ color: $white;
+ border: 1px solid $vte-primary;
+ background-color: $vte-primary;
+ }
+ .turboliftEntry1, .turboliftEntry2 {
+ color: $grey-800;
+ border: 1px solid $grey-100;
+ background-color: $grey-100;
+ }
+ .turboliftEntry:hover, .turboliftEntry1:hover {
+ Filter: Alpha(opacity = 70);
+ -moz-opacity: 0.7;
+ opacity: 0.7;
+ }
+ .turboliftEntry a {
+ text-decoration: none;
+ }
+ .turboliftEntryWithImage {
+ padding:0px;
+ height:25px;
+ }
+ */
+
+
+/* crmv@3085me */
+.highlighted {
+	color: $white;
+	background-color: $vte-menusep;
+}
+/* crmv@45561 */
+.errorString {
+	font-weight: bold;
+	color: red;
+}
+/* crmv@45561e */
+/* crmv@59091 */
+.sendingMethod {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 10px 0px;
+	box-sizing: border-box;
+}
+.sendingMethod div:nth-of-type(1) {
+	float: left;
+	width: 40%;
+	height: 100%;
+	display: table;
+}
+.sendingMethod div:nth-of-type(1) span {
+	display: table-cell;
+	vertical-align: middle;
+	color: $grey-800;
+}
+.sendingMethod div:nth-of-type(2), .sendingMethod div:nth-of-type(3) {
+	float: right;
+	padding: 0px 5px;
+	box-sizing: border-box;
+	text-align: left;
+	width: 60%;
+}
+.pdfActionWrap {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+.pdfActionImage {
+	float: left;
+	width: 20%;
+	display: table;
+	height: 100%;
+}
+.pdfActionText {
+	float: right;
+	width: 80%;
+	height: 100%;
+	display: table;
+}
+.pdfActionImage a, .pdfActionText a {
+	display: table-cell;
+	vertical-align: middle;
+}
+/* crmv@59091e */
+
+#moduleTable {
+	height: 50px;
+	background-color: #ECEFF1;
+	text-indent: 10px;
+}
+
+#txtdatetimeshow_new {
+	border: 0px none;
+}
+
+.ui-widget-content {
+	background-image: none;
+	background-color: $white;
+}
+
+//crmv@100495
+i.button-image.vteicon[data-first-letter]:after {
+	color: $white;
+	font-size: 17px;
+	vertical-align: middle;
+}
+//crmv@100495e
+
+//crmv@100972
+.bjs-powered-by {
+	opacity: 0.2;
+}
+//crmv@100972e
+
+//crmv@93990
+.editoptions select {
+	max-width: 400px;
+}
+//crmv@93990e
+
+// crmv@102879
+.tablefield_table {
+	//border-bottom: 1px solid $grey-400;
+}
+
+.tablefield_cell {
+	padding: 4px;
+	/*border-right: 1px solid $grey-400;
+	
+	&:last-child {
+		border-right: none;
+	}*/
+}
+
+.tablefield_hcell {
+	padding: 4px;
+	/*border-bottom: 1px solid $grey-400;
+	border-right: 1px solid $grey-400;
+	
+	&:last-child {
+		border-right: none;
+	}*/
+}
+
+// crmv@102879e
+
+//crmv@104566
+.history_line {
+	padding: 5px;
+	margin-bottom: 10px;
+}
+.history_line_title {
+	min-height: 30px;
+	position: relative;
+}
+.history_line_title:before {
+    content: '';
+    background: $vte-submenu;
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    left: -20px;
+    top: 30px;
+    bottom: 0;
+    margin-left: -1px;
+}
+.history_line_img {
+	float: left;
+	width: 30px;
+}
+.history_line_info {
+	margin-left: 30px;
+}
+.history_line_user_img, .history_line_user_name {
+	float: left;
+	padding-right: 5px;
+	font-weight: bold;
+}
+.history_line_date {
+	position: relative;
+	top: -5px;
+}
+//crmv@104566e
+
+@import 'utilities';
+
+@import 'fancybox';
+
+@import 'calendar';
+
+@import 'reminder';
+
+@import 'simplelistview';
+
+@import 'progressbar';
+
+@import 'kanban';
+
+@import 'autocomplete'; // crmv@94525
+
+@import 'loaders/circle';
+
+@import 'icons';
+
+@import 'eventspop'; /* crmv@103922 */

@@ -1,0 +1,76 @@
+/* Colors definitions */ 
+
+/* Import Material Colors */
+@import '../material/colors';
+
+/* Named colors */
+
+$red: #ff0000;
+$green: #00ff00;
+$blue: #0000ff;
+$yellow: #ffff00;
+$cyan: #00ffff;
+$magenta: #ff00ff;
+
+
+/* Theme colors */
+$vte-primary: #2c80c8;			/* colore menu principale */
+$vte-menusep: #2f76b4;			/* colore 2 separatore menu */
+$vte-submenu: #ebf2f8;			/* colore 3 sotto menu */
+$vte-submenusep: #d2e2ef;		/* colore 4 separatore sotto menu */
+$vte-thin-border: $grey-300;
+$vte-button-border: #D2D2D2;
+
+/* Text */
+$vte-text: $black;				/* colore per testo normale */
+$vte-text-title: #2b577c;		/* colore per titoli vari */
+$vte-text-record: #fe0000;		/* colore per titolo record (detaiview, editview, createview) */
+
+
+/* Buttons */
+$vte-button-delete: #fe0000;	/* colore per pulsante elimina */
+$vte-button-save: #66871a;		/* colore per pulsante salva */
+
+
+/* Fields */
+$vte-field: $grey-300;			/* colore per campi */
+$vte-field-label: $grey-600;	/* colore per etichette campi */
+$vte-field-disabled: $grey-100;	/* colore per campi non modificabili */
+$vte-field-mandatory: #EFD5D5;	/* colore per campi obbligatori */
+
+
+/* Boxes */
+$vte-box-verylight-bg: #F6F9FC;							/* Sfondo ultra leggero per varie box (azzurro) */
+
+$vte-box-light-bg: #eeeefe;								/* Sfondo leggero per varie box (azzurro) */
+$vte-box-light-border: lighten($vte-primary, 35%);		/* Bordo per box leggero */
+
+$vte-box-light-bg2: #fffeee;							/* Sfondo leggero per varie box (giallo) */
+
+$vte-box-medium-bg: lighten($vte-primary, 40%);			/* Sfondo medio, per varie box */
+$vte-box-medium-border: lighten($vte-primary, 30%);		/* Bordo per il box medio */
+
+$vte-help-box-border: $yellow;
+$vte-help-box: lighten($yellow, 40%);
+
+
+/* Wizards */
+$vte-wizard-tab: $grey-200;
+$vte-wizard-tab-selected: darken($vte-wizard-tab, 10%);
+
+
+
+/* Override colors for Material theme */
+$primary: $vte-primary;
+$success: $vte-button-save;
+$warning: $vte-button-delete;
+$danger: $vte-button-delete;
+
+/* Lateral menu */
+$vte-lateral-menu-background: $primary;
+$vte-lateral-menu-item-background: $vte-lateral-menu-background;
+$vte-lateral-menu-active-item-background: lighten($vte-lateral-menu-item-background, 20%);
+$vte-lateral-menu-item-text-color: #E5E5E5;
+$vte-lateral-menu-active-item-text-color: $white;
+$vte-lateral-menu-item-icon-color: #E5E5E5;
+$vte-lateral-menu-active-item-icon-color: $white;

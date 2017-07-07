@@ -1,0 +1,335 @@
+/*+*************************************************************************************
+* The contents of this file are subject to the VTECRM License Agreement
+* ("licenza.txt"); You may not use this file except in compliance with the License
+* The Original Code is: VTECRM
+* The Initial Developer of the Original Code is VTECRM LTD.
+* Portions created by VTECRM LTD are Copyright (C) VTECRM LTD.
+* All Rights Reserved.
+***************************************************************************************/
+
+/* crmv@119414 */
+
+@import 'vars/colors';
+
+@import "bootstrap/bootstrap/variables";
+@import "bootstrap/bootstrap/mixins";
+@import 'bootstrap/bootstrap/_tables';
+
+#track_buttons_pop, #login_history_cont > table, .searchResults > table {
+	@extend .table;
+	
+	&>tbody>tr>td {
+		vertical-align: middle;
+		padding: 5px 5px;
+	    padding-left: 15px;
+	}
+}
+
+#listViewCont {
+	padding: 10px;
+}
+
+#listView {
+	@extend .table;
+	
+	font-size: 14px;
+	
+	&>tbody>tr>td {
+		vertical-align: middle;
+		padding: 5px 5px;
+	    padding-left: 15px;
+	}
+	
+	&>tbody>tr:nth-child(1)>td {
+		border-top: 0px none;
+	}
+	
+	&>tbody>tr:last-child:not([id^="row_"])>td {
+		border-top: 0px none;
+	}
+	
+	& #gridSrc>td {
+		border-top: 0px none;
+	}
+}
+
+.listTable {
+	@extend .table;
+	
+	border: 0px none;
+	
+	&>tbody>tr>td {
+		vertical-align: middle;
+	}
+	
+	& .colHeader {
+		background-image: none;
+		border: 0px none;
+		border-top: 1px solid $table-border-color;
+	}
+	
+	& .listTableRow {
+		border: 0px none;
+		border-top: 1px solid $table-border-color;
+	}
+}
+
+.dropdown, .dropup {
+	&:not(#moduleSettingsTd) {
+		display: inline-block;
+	}
+	
+	width: auto;
+	
+	.dropdown-menu {
+		padding: 0px;
+		
+		.drop_down {
+			width: 100%;
+			font-size: 13px;
+			padding: 10px 10px;
+			
+			&:hover {
+				width: 100%;
+				padding: 10px 10px;
+				background-color: $vte-primary;
+				color: $white;
+			}
+		}
+	}
+}
+
+#UnifiedSearchAreas {
+    background-color: $white;
+	padding: 5px;
+	
+	& > table > tbody > tr[id^="UnifiedSearchAreasUnifiedRow"] > td {
+		font-size: 13px;
+	    font-weight: bold;
+	    border-bottom: 1px solid #E0E0E0;
+	    padding: 5px 0px;
+	}
+}
+
+.dvtContentSpace {
+	
+	& .dvtContentSpaceInner {
+		padding: 10px;
+	}
+	
+	& .blocksContainer {
+		background-color: $white;
+	    border: 1px solid $grey-300;
+	   	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	   	padding: 5px;
+	}
+	
+	& .fieldsContainer {
+		table-layout: fixed;
+	}
+	
+	& .detailedViewHeader {
+		background-color: $white;
+		padding: 15px;
+		font-size: 20px;
+		font-weight: 400;
+	}
+}
+
+.customViewContainer {
+	
+	& .blocksContainer {
+		background-color: $white;
+	    border: 1px solid $grey-300;
+	   	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	   	padding: 5px;
+	}
+	
+	& .detailedViewHeader {
+		background-color: $white;
+		padding: 15px;
+		font-size: 20px;
+		font-weight: 400;
+	}
+}
+
+#detailBlocksContainer {
+	width: 45%;
+	vertical-align: top;
+	padding: 5px;
+	
+	& #DetailViewBlocks {
+	    background-color: $white;
+	    border: 1px solid $grey-300;
+	   	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	   	
+	   	& .detailBlockFields {
+	   		padding: 15px;
+	   	}
+	}
+}
+
+.myNotesContainer {
+	& #DetailViewBlocks {
+	    background-color: $white;
+	    border: 1px solid $grey-300;
+	   	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	   	
+	   	& .detailBlockFields {
+	   		padding: 15px;
+	   	}
+	}
+}
+
+#detailWidgetsContainer {
+	width: 35%;
+	vertical-align: top;
+	padding: 5px;
+	
+	& #DetailViewWidgets > tbody > tr > td {
+		padding: 0px;
+	}
+	
+	& .detailWidgetCont {
+		height: 350px;
+		min-height: 350px;
+		border: 1px solid $grey-300;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+	
+		& .detailWidget {
+			vertical-align: top;
+			overflow-y: auto;
+			background-color: $white;
+			padding: 5px;
+			
+			& .detailWidgetInner {
+				padding: 10px;
+			}
+		}
+	}
+	
+	& .detailWidgetDivider {
+		height: 20px;
+	}
+}
+
+.proTabContainer {
+	background-color: $white;
+    border: 1px solid $grey-300;
+   	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+   	padding: 5px;
+   	
+   	& .crmTable {
+   		border: 0px none;
+   	}
+}
+
+#template_prev {
+	background-color: $white;
+    border: 1px solid $grey-300;
+   	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+   	padding: 5px;
+}
+
+#proTab, #detailWidgetsContainer, 
+#detailBlocksContainer, .myNotesContainer, 
+#DynamicRelatedList, #RLContents, #template_prev {
+	& .dvInnerHeader {
+		background-color: $white;
+		padding: 15px;
+		font-size: 20px;
+		font-weight: 400;
+	}
+}
+
+#turboLiftContainer {
+	width: 20%;
+	vertical-align: top;
+	padding: 5px;
+}
+
+#RelatedListsCont {
+	padding: 5px;
+}
+	
+#DynamicRelatedList {
+	padding: 5px;
+}
+
+#DynamicRelatedList, #RLContents {
+	& div[data-relationid] {
+		border: 1px solid $grey-300;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+		margin-bottom: 10px;
+	}
+}
+	
+.myNotesWidget {
+	height: 350px;
+}
+
+.dvtCellLabel {
+	font-size: 14px;
+}
+
+.dvtCellInfo, .cellInfo, .dvtCellInfoOn, .dvtCellInfoM, .dvtCellInfoMOn, .dvtCellInfoOff {
+	font-size: 16px;
+}
+
+#MainMatrix {
+	& .MatrixLayer, & .modblock {
+		border: 1px solid rgb(224, 224, 224);
+	    box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 1px;
+	    background-color: $white;
+	}
+	
+	& .homePageMatrixHdr {
+		padding: 0px;
+	}
+
+	& .dvInnerHeader {
+    	background-color: $white;
+    	
+    	& > td {
+    		padding: 5px;
+    	}
+    }
+    
+    & .MatrixBorder {
+		margin-top: 0px;
+	    border: 0px none;
+        padding: 10px;
+	}
+}
+
+#ModComments_sub {
+	border: 0px none;
+	background-color: $white;
+	text-align: initial;
+	overflow: initial;
+	padding: initial;
+}
+
+#proTab, #finalProTab {
+	font-size: 14px;
+}
+
+.globalSearch {
+	
+	padding-right:5px;
+	position: relative;
+	display: table-cell;
+	vertical-align: middle;
+	float: none;
+	
+	.searchIcon {
+		cursor: pointer;
+		position: absolute;
+		right: 0px;
+		top: 2px;
+		
+		img {
+			vertical-align: middle;
+		}
+	}	
+}
