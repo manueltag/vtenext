@@ -4,7 +4,7 @@ VTENEXT CE is born in order to provide a FREE OPEN SOURCE solution through which
 
 # HOW TO INSTALL - QUICK START
 1.	Download the latest release of VTENEXT CE from this project page
-2.	Unzip the zip file to a folder on your hard drive. This will create a folder containing the files and directories
+2.	Unzip the zip file to a folder on your hard drive. This will create a folder containing the files and directories, the software is in the "source" directory
 3.	Open your FTP client and upload the VTENEXT CE files in ‘binary mode’ to the desired location on your web server. All files can be uploaded to a “vtenext” sub-directory in your public www folder, for example http://yourdomain.org/vtenext/ or you could setup VTENEXT CE in its own subdomain and upload all the files at, for example http://vtenext.mycompany.com
 4.	Open your web browser and navigate to the URL to which you uploaded VTENEXT CE. If everything is uploaded correctly, you should see the Configuration Wizard. If there are any problems, VTENEXT CE will identify them and help you out with a solution, otherwise follow the step by step instructions in order to have the software correctly installed
 
